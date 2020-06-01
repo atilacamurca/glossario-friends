@@ -2,6 +2,14 @@
 
 /* purgecss start ignore */
 
+  .markdown-body .icon {
+    padding-right: 4px;
+  }
+
+  .markdown-body .icon-link:before {
+    content: "#";
+  }
+
   .markdown-body .octicon {
     display: inline-block;
     fill: currentColor;
@@ -522,9 +530,9 @@
   }
 
   .markdown-body blockquote {
-    border-left: .25em solid #30855A;
-    color: #6a737d;
-    padding: 0 1em;
+    border-left: .2em solid #3182ce;
+    color: var(--text-copy-primary);
+    padding: 0.75rem;
   }
 
   .markdown-body blockquote>:first-child {
@@ -662,7 +670,6 @@
   }
 
   .markdown-body img {
-    background-color: #fff;
     box-sizing: content-box;
     max-width: 100%;
   }

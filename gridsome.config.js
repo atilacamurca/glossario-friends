@@ -72,6 +72,35 @@ module.exports = {
       }
     },
     {
+      use: '@gridsome/vue-remark',
+      options: {
+        typeName: 'Episodio',
+        baseDir: './temporadas',
+        route: '/temporada/:temporada/episodio/:episodio',
+        template: './src/templates/Episodio.vue',
+        plugins: [
+          'remark-slug',
+          'remark-autolink-headings',
+          'remark-external-links',
+          'remark-squeeze-paragraphs',
+          'remark-fix-guillemets'
+        ]
+      }
+    },
+    // {
+    //   use: '@gridsome/source-filesystem',
+    //   options: {
+    //     path: 'temporadas/**/*.md',
+    //     typeName: 'Episodio',
+    //     refs: {
+    //       tags: {
+    //         typeName: 'Tag',
+    //         create: true
+    //       }
+    //     }
+    //   }
+    // },
+    {
       use: 'gridsome-plugin-rss',
       options: {
         contentTypeName: 'Post',
@@ -101,7 +130,8 @@ module.exports = {
     },
   ],
   templates: {
-    Tag: '/tag/:id'
+    Tag: '/tag/:id',
+    // Episodio: '/temporada/:temporada/episodio/:episodio/'
   },
   transformers: {
     remark: {

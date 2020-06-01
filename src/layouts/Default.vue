@@ -1,5 +1,5 @@
 <template>
-  <div class="content-wrapper bg-background-primary font-sans text-copy-primary leading-normal flex flex-col min-h-screen" :class="theme">
+  <div class="content-wrapper bg-background-primary font-sans text-primary leading-normal flex flex-col min-h-screen" :class="theme">
     <header class="border-t-14 border-blue-600">
       <nav class="container mx-auto flex flex-wrap justify-between items-center py-8">
         <div>
@@ -22,7 +22,7 @@
             <theme-switcher :theme="theme" @themeChanged="updateTheme" />
           </li>
           <li>
-            <g-link to="/blog" class="text-copy-primary hover:text-gray-600">Temporadas</g-link>
+            <g-link to="/temporadas" class="text-copy-primary hover:text-gray-600">Temporadas</g-link>
           </li>
         </ul>
       </nav>

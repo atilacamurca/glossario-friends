@@ -11,7 +11,8 @@
 
   --bg-background-form: white;
 
-  --text-copy-primary: #2d3748;
+  --text-primary: #2d3748;
+  --text-copy-primary: #2b6cb0;
   --text-copy-secondary: #4a5568;
 
   --border-border-color-primary: white;
@@ -44,8 +45,9 @@
 
   --bg-background-form: #1a202c;
 
-  --text-copy-primary: #cbd5e0;
-  --text-copy-secondary: #e2e8f0;
+  --text-primary: #cbd5e0;
+  --text-copy-primary: #63b3ed;
+  --text-copy-secondary: #f6e05e;
 
   --border-border-color-primary:  #1a202c;
 }
