@@ -25,6 +25,7 @@ module.exports = {
             './src/**/*.md',
             './docs/**/*.md',
             './blog/**/*.md',
+            './temporadas/**/*.md'
           ],
           whitelist: [
             'body',
@@ -36,6 +37,7 @@ module.exports = {
             'g-image--loaded',
             'active',
           ],
+          whitelistPatterns: [/^bg-/],
           defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
         },
       }
