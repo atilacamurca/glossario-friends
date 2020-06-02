@@ -89,19 +89,6 @@ module.exports = {
         ]
       }
     },
-    // {
-    //   use: '@gridsome/source-filesystem',
-    //   options: {
-    //     path: 'temporadas/**/*.md',
-    //     typeName: 'Episodio',
-    //     refs: {
-    //       tags: {
-    //         typeName: 'Tag',
-    //         create: true
-    //       }
-    //     }
-    //   }
-    // },
     {
       use: 'gridsome-plugin-rss',
       options: {
@@ -132,8 +119,7 @@ module.exports = {
     },
   ],
   templates: {
-    Tag: '/tag/:id',
-    // Episodio: '/temporada/:temporada/episodio/:episodio/'
+    Tag: '/tag/:id'
   },
   transformers: {
     remark: {

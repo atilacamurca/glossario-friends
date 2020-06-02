@@ -69,15 +69,5 @@ query Episodios ($temporada: Int) {
 
 <script>
 export default {
-  methods: {
-    pad (text, size) {
-      var s = text.toString();
-      while (s.length < (size || 2)) { s = '0' + s; }
-      return s;
-    }
-  }
 }
 </script>
-
-<style>
-</style>
