@@ -20,23 +20,18 @@ export default function (Vue, { router, head, isClient }) {
 
   head.meta.push({
     name: 'keywords',
-    content: 'Gridsome,Vue,Tailwind,Tailwind CSS,JavaScript,HTML,CSS,Vue.js,VueJS'
-  })
-
-  head.meta.push({
-    name: 'description',
-    content: 'Gridsome Portfolio Starter'
+    content: 'Friends,Glossário,Rachel Greene,Monica Geller,Phoebe Buffay,Ross Geller,Chandler Bing,Joey Tribbiani'
   })
 
   head.meta.push({
     name: 'author',
-    content: 'Andre Madarang'
+    content: 'Átila Camurça'
   })
 
   head.link.push({
     rel: 'stylesheet',
     href: 'https://fonts.googleapis.com/css?family=Nunito+Sans:400,700'
   })
+
+  head.htmlAttrs = { lang: 'pt-br' }
 }
-
-
