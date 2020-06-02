@@ -9,7 +9,7 @@ const siteUrl = 'https://glossario-friends.netlify.com'
 
 module.exports = {
   siteName,
-  siteDescription: 'Entenda referências da série Friends',
+  siteDescription: 'Aquele com o Glossário de Friends: Entenda referências da série',
   siteUrl,
   plugins: [
     {

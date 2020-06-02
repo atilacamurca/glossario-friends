@@ -24,11 +24,6 @@ export default function (Vue, { router, head, isClient }) {
   })
 
   head.meta.push({
-    name: 'description',
-    content: 'Aquele com o Glossário de Friends'
-  })
-
-  head.meta.push({
     name: 'author',
     content: 'Átila Camurça'
   })
