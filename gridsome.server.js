@@ -8,4 +8,32 @@
 module.exports = function (api, options) {
   api.loadSource(store => {
   })
+
+  api.createPages(async ({ graphql, createPage }) => {
+    const { data } = await graphql(`{
+      allEpisodio {
+        edges {
+          node {
+            path
+            title
+            temporada
+            episodio
+            date
+            summary
+          }
+        }
+      }
+    }`)
+
+    data.allEpisodio.edges.forEach(({ node }) => {
+      createPage({
+        path: `/temporada/${node.temporada}`,
+        component: './src/templates/Temporada.vue',
+        context: {
+          temporada: node.temporada
+        }
+      })
+    })
+  })
+
 }

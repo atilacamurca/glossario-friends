@@ -25,6 +25,7 @@ module.exports = {
             './src/**/*.md',
             './docs/**/*.md',
             './blog/**/*.md',
+            './temporadas/**/*.md'
           ],
           whitelist: [
             'body',
@@ -36,6 +37,7 @@ module.exports = {
             'g-image--loaded',
             'active',
           ],
+          whitelistPatterns: [/^bg-/],
           defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
         },
       }
@@ -69,6 +71,22 @@ module.exports = {
             create: true
           }
         }
+      }
+    },
+    {
+      use: '@gridsome/vue-remark',
+      options: {
+        typeName: 'Episodio',
+        baseDir: './temporadas',
+        route: '/temporada/:temporada/episodio/:episodio',
+        template: './src/templates/Episodio.vue',
+        plugins: [
+          'remark-slug',
+          'remark-autolink-headings',
+          'remark-external-links',
+          'remark-squeeze-paragraphs',
+          'remark-fix-guillemets'
+        ]
       }
     },
     {

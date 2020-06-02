@@ -42,19 +42,20 @@
         episódio, mostrando: a personagem, a fala original, a fala traduzida e um pouco de história.
         Por exemplo no episódio:
       </p>
-      <p class="text-xl font-bold">S01E01 - The One Where Monica Gets a New Roommate</p>
+      <p class="text-2xl font-bold">S01E01 - The One Where Monica Gets a New Roommate</p>
     </div>
 
     <div class="container-inner px-5 py-8 mx-auto">
-      <div class="flex border-2 rounded-lg border-gray-200 p-6 mb-6 sm:flex-row flex-col">
-        <div class="w-16 h-16 sm:mr-8 sm:mb-0 mb-4 inline-flex items-center justify-center flex-shrink-0">
-          <g-image src="~/assets/img/chandler.png" width="72" class="rounded-full bg-teal-500"/>
-        </div>
-        <div class="flex flex-col flex-grow items-start">
-          <h2 class="text-blue-700 text-xl title-font font-medium">- Look, Gepetto, I'm a real live boy.</h2>
-          <h3 class="text-gray-700 text-xl title-font">- Olha, Gepetto, sou um menino de verdade.</h3>
-        </div>
-      </div>
+      <cena>
+        <monica
+          original="- Wait, unless you happened to catch the Reruns' production of Pinocchio."
+          traducao="- Espera, a não ser que tenha visto a refilmagem do Pinóquio."
+        ></monica>
+        <chandler
+          original="- Look, Gepetto, I'm a real live boy."
+          traducao="- Olha, Gepetto, sou um menino de verdade."
+        ></chandler>
+      </cena>
       <p class="text-lg sm:text-xl mb-4">
         Referência ao filme <a href="https://www.imdb.com/title/tt0032910/">Pinóquio</a> (1940),
         produzido pela Walt Disney, onde é contada a história de um velho carpinteiro chamado Gepetto,
@@ -73,13 +74,26 @@
       </div>
       <ul class="list-decimal">
         <li>
-          <a href="https://www.imdb.com/title/tt0032910/" target="_blank" rel="noopener noreferrer">IMBD</a>
+          <a
+            href="https://www.imdb.com/title/tt0032910/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >IMBD</a>
         </li>
         <li>
-          <a href="https://pt.wikipedia.org/wiki/Pin%C3%B3quio_(filme)" target="_blank" rel="noopener noreferrer">Wikipédia</a>
+          <a
+            href="https://pt.wikipedia.org/wiki/Pin%C3%B3quio_(filme)"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Wikipédia</a>
         </li>
       </ul>
+      <g-link to="/temporadas" class="flex items-center text-lg text-white hover:text-white bg-blue-600 border-0 py-3 px-4 w-full focus:outline-none hover:bg-blue-700 rounded mx-auto my-4">
+        Ver mais
+        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-auto" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+      </g-link>
     </div>
+
 
     <!-- <div class="overflow-x-hidden">
       <div class="projects container-inner mx-auto text-xl border-t border-gray-500 border-b py-16 mb-16 relative">
