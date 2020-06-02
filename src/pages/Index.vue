@@ -88,7 +88,7 @@
           >Wikipédia</a>
         </li>
       </ul>
-      <g-link to="/temporadas" class="flex items-center text-lg text-white hover:text-white bg-blue-600 border-0 py-3 px-4 w-full focus:outline-none hover:bg-blue-700 rounded mx-auto my-4">
+      <g-link to="/temporadas" class="flex items-center text-lg text-white hover:text-white bg-blue-700 border-0 py-3 px-4 w-full focus:outline-none hover:bg-blue-800 rounded mx-auto my-4">
         Ver mais
         <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-auto" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
       </g-link>

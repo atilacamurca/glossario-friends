@@ -3,6 +3,7 @@
     <div class="w-16 h-16 sm:mr-8 sm:mb-0 mb-4 inline-flex items-center justify-center flex-shrink-0">
       <g-image
         :src="props.imagem"
+        :alt="props.personagem"
         width="72"
         class="rounded-full"
         :class="props.corFundo"
@@ -21,6 +22,10 @@ export default {
     imagem: {
       type: String,
       required: true
+    },
+    personagem: {
+      type: String,
+      default: 'desconhecido'
     },
     corFundo: {
       type: String,

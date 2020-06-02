@@ -1,6 +1,7 @@
 <template functional>
   <dialogo
     :imagem="require('~/assets/img/chandler.png')"
+    personagem="Chandler"
     cor-fundo="bg-indigo-200"
     :original="props.original"
     :traducao="props.traducao"
