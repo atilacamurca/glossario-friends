@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class="container mb-24 mx-auto">
+    <div class="container-inner mb-24 mx-auto">
       <div class="flex flex-col text-center w-full mb-10">
         <h1 class="sm:text-3xl text-2xl font-bold title-font mb-4 text-blue-700">
           Temporada {{ $context.temporada }}
@@ -16,21 +16,22 @@
           class="py-8 flex flex-wrap md:flex-no-wrap"
         >
           <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-            <span class="tracking-widest font-medium title-font text-gray-900">
-              S{{ pad(item.node.temporada) }}E{{ pad(item.node.episodio) }}
-            </span>
+            <div>
+              <cod-episodio v-bind="item.node">
+              </cod-episodio>
+            </div>
             <span class="mt-1 text-gray-600 text-sm">{{ item.node.date }}</span>
           </div>
           <div class="md:flex-grow">
             <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">
               {{ item.node.title }}
             </h2>
-            <p class="leading-relaxed">
+            <p class="text-lg leading-relaxed mb-4">
               {{ item.node.summary }}
             </p>
             <g-link
               :to="item.node.path"
-              class="text-blue-500 inline-flex items-center mt-4"
+              class="inline-flex text-white hover:text-white bg-blue-600 border-0 py-2 px-6 focus:outline-none hover:bg-blue-700 rounded text-lg"
             >
               Visualizar
             </g-link>

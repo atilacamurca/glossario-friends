@@ -1,12 +1,11 @@
 <template>
   <Layout>
     <div class="container-inner mx-auto my-16">
-      <div class="inline-block py-1 px-3 rounded bg-orange-200 text-orange-600 text-md font-medium tracking-widest mb-2">
-        S{{ pad($page.episodio.temporada) }}E{{ pad($page.episodio.episodio) }}
-      </div>
-      <h1 class="text-4xl font-bold leading-tight mb-2">
+      <cod-episodio v-bind="$page.episodio">
+      </cod-episodio>
+      <div class="text-4xl font-bold leading-tight mb-2">
         {{ $page.episodio.title }}
-      </h1>
+      </div>
       <div class="text-xl text-gray-600 mb-4">{{ $page.episodio.date }}</div>
       <div class="markdown-body mb-8">
         <VueRemarkContent />
