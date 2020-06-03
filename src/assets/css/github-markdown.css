@@ -669,9 +669,10 @@
     background-color: #f6f8fa;
   }
 
-  .markdown-body img {
+  .markdown-body img:not(.rounded-full) {
     box-sizing: content-box;
     max-width: 100%;
+    border-radius: 0.5rem;
   }
 
   .markdown-body img[align=right] {
