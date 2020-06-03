@@ -72,7 +72,7 @@
       <div class="text-lg sm:text-xl mb-4">
         Referências:
       </div>
-      <ul class="list-decimal">
+      <ul class="list-decimal px-4">
         <li>
           <a
             href="https://www.imdb.com/title/tt0032910/"
