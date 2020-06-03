@@ -678,6 +678,8 @@
     box-sizing: content-box;
     max-width: 100%;
     border-radius: 0.5rem;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .markdown-body img[align=right] {
