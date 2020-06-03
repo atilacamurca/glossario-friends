@@ -36,7 +36,7 @@
         <div class="flex flex-col" ref="results">
           <a
             v-for="(post, index) in results"
-            :key="index"
+            :key="post.item.id"
             :href="post.item.path"
             @click="reset"
             class="bg-background-form border-b border-gray-400 text-xl cursor-pointer p-4 search-hover"
@@ -48,7 +48,7 @@
           </a>
 
           <div v-if="results.length === 0" class="bg-background-form font-normal w-full border-b cursor-pointer p-4">
-            <p class="my-0">No results for '<strong>{{ query }}</strong>'</p>
+            <p class="my-0">Nenhum resultado para '<strong>{{ query }}</strong>'</p>
           </div>
         </div>
       </div>
@@ -59,27 +59,13 @@
 
 <static-query>
 query Search {
-  allPost {
+  allEpisodio {
     edges {
       node {
         id
         path
         title
         summary
-        headings {
-          depth
-          value
-          anchor
-        }
-      }
-    }
-  }
-  allDocumentation {
-    edges {
-      node {
-        id
-        path
-        title
       }
     }
   }
@@ -96,19 +82,13 @@ export default {
   computed: {
     pages () {
       let result = [];
-      const allPost = this.$static.allPost.edges.map(edge => edge.node);
-      allPost.forEach(page => {
+      const allEpisodio = this.$static.allEpisodio.edges.map(edge => edge.node);
+      allEpisodio.forEach(page => {
         result.push({
+          id: page.id,
           path: page.path,
           title: page.title,
           summary: page.summary
-        });
-      });
-      const allDocs = this.$static.allDocumentation.edges.map(edge => edge.node);
-      allDocs.forEach(page => {
-        result.push({
-          path: page.path,
-          title: page.title
         });
       });
       return result;
