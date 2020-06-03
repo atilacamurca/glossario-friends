@@ -353,6 +353,11 @@
     margin: 0;
   }
 
+  .markdown-body blockquote p {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+
   .markdown-body ol,
   .markdown-body ul {
     margin-bottom: 0;
@@ -522,8 +527,8 @@
   }
 
   .markdown-body hr {
-    background-color: #A0AEC0;
-    border: 0;
+    background-color: #cbd5e0;
+    border: 1px;
     height: 1px;
     margin: 24px 0;
     padding: 0;
