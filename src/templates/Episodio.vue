@@ -16,11 +16,20 @@
           class="font-bold uppercase">
           Voltar para Temporada {{ $page.episodio.temporada }}
         </g-link>
-        <g-link
-          to="/temporadas"
-          class="font-bold uppercase">
-          Ver todas
-        </g-link>
+        <div class="flex">
+          <g-link
+            :to="$page.episodio.anterior"
+            class="font-bold uppercase flex">
+            <chevron-left-icon></chevron-left-icon>
+            Anterior
+          </g-link>
+          <g-link
+            :to="$page.episodio.proximo"
+            class="font-bold uppercase flex ml-4">
+            Próximo
+            <chevron-right-icon></chevron-right-icon>
+          </g-link>
+        </div>
       </div>
     </div>
   </Layout>
@@ -33,6 +42,8 @@ query Episodio ($path: String!) {
     temporada
     episodio
     date (format: "MMMM D, Y")
+    proximo
+    anterior
   }
 }
 </page-query>
