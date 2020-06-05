@@ -41,7 +41,7 @@ query Episodio ($path: String!) {
     title
     temporada
     episodio
-    date (format: "MMMM D, Y")
+    date (format: "MMMM D, Y", locale: "pt-BR")
     proximo
     anterior
   }
