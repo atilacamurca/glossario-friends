@@ -29,7 +29,7 @@ export default {
     },
     corFundo: {
       type: String,
-      default: 'bg-teal-500'
+      default: 'bg-teal-300'
     },
     original: {
       type: String,
