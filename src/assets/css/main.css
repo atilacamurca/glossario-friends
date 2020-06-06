@@ -16,6 +16,7 @@
   --text-copy-secondary: #4a5568;
 
   --border-border-color-primary: white;
+  --color-ui-border: theme('colors.gray.300');
 }
 
 .theme-light .search-highlighted {
@@ -50,6 +51,7 @@
   --text-copy-secondary: #f6e05e;
 
   --border-border-color-primary:  #1a202c;
+  --color-ui-border: theme('colors.gray.800');
 }
 
 .theme-dark .markdown-body {

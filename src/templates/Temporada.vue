@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class="container-inner mb-24 mx-auto">
+    <div class="container-inner mt-4 mb-24 mx-auto">
       <div class="flex flex-col text-center w-full mb-10">
         <h1 class="sm:text-3xl text-2xl font-bold title-font mb-4 text-blue-700">
           Temporada {{ $context.temporada }}
