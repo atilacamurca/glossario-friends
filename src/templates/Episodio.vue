@@ -14,7 +14,11 @@
           <div class="text-4xl font-bold leading-tight mb-2">
             {{ $page.episodio.title }}
           </div>
-          <div class="text-xl text-gray-600 mb-4">{{ $page.episodio.date }}</div>
+          <div class="text-xl text-gray-600 mb-4">
+            {{ $page.episodio.date }}
+            &middot;
+            {{ $page.episodio.timeToRead }}
+          </div>
           <div class="content markdown-body mb-8">
             <VueRemarkContent />
           </div>
@@ -55,6 +59,7 @@ query Episodio ($path: String!) {
     temporada
     episodio
     date (format: "MMMM D, Y", locale: "pt-BR")
+    timeToRead
     proximo
     anterior
     path

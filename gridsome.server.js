@@ -5,8 +5,21 @@
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
+const readingTime = require('reading-time')
+
 module.exports = function (api, options) {
-  api.loadSource(store => {
+  api.loadSource(({ addSchemaResolvers }) => {
+    addSchemaResolvers({
+      Episodio: {
+        timeToRead: {
+          type: 'String',
+          resolve (obj) {
+            const { minutes } = readingTime(obj.content)
+            return `${Math.ceil(minutes.toFixed(2))} min. de leitura`
+          }
+        }
+      }
+    })
   })
 
   api.createPages(async ({ graphql, createPage }) => {
@@ -35,5 +48,4 @@ module.exports = function (api, options) {
       })
     })
   })
-
 }
