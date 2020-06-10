@@ -31,14 +31,14 @@
             </g-link>
             <div class="flex">
               <g-link
-                :to="$page.episodio.anterior"
+                :to="$page.episodio.linkAnterior"
                 class="font-bold uppercase flex"
               >
                 <chevron-left-icon></chevron-left-icon>
                 Anterior
               </g-link>
               <g-link
-                :to="$page.episodio.proximo"
+                :to="$page.episodio.linkProximo"
                 class="font-bold uppercase flex ml-4"
               >
                 Próximo
@@ -60,8 +60,8 @@ query Episodio ($path: String!) {
     episodio
     date (format: "MMMM D, Y", locale: "pt-BR")
     timeToRead
-    proximo
-    anterior
+    linkAnterior
+    linkProximo
     path
     headings {
       depth
