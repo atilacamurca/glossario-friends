@@ -5,8 +5,57 @@
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
+const readingTime = require('reading-time')
+
+const temporadas = {
+  '1': 24,
+  '2': 24,
+  '3': 25,
+  '4': 24,
+  '5': 24,
+  '6': 25,
+  '7': 24,
+  '8': 24,
+  '9': 24,
+  '10': 18,
+}
+
 module.exports = function (api, options) {
-  api.loadSource(store => {
+  api.loadSource(({ addSchemaResolvers }) => {
+    addSchemaResolvers({
+      Episodio: {
+        timeToRead: {
+          type: 'String',
+          resolve (obj) {
+            const { minutes } = readingTime(obj.content)
+            return `${Math.ceil(minutes.toFixed(2))} min. de leitura`
+          }
+        },
+        linkAnterior: {
+          type: 'String',
+          resolve (obj) {
+            const { temporada, episodio } = obj
+            if (episodio === 1) {
+              return `/temporada/${temporada}/`
+            }
+            return `/temporada/${temporada}/episodio/${episodio - 1}/`
+          }
+        },
+        linkProximo: {
+          type: 'String',
+          resolve (obj) {
+            const { temporada, episodio } = obj
+            if (temporada === 10) {
+              return '/agradecimento' // TODO: criar página de agradecimento
+            } else if (temporadas[temporada] === episodio) {
+              // último episódio da temporada
+              return `/temporada/${temporada + 1}`
+            }
+            return `/temporada/${temporada}/episodio/${episodio + 1}`
+          }
+        }
+      }
+    })
   })
 
   api.createPages(async ({ graphql, createPage }) => {
@@ -35,5 +84,4 @@ module.exports = function (api, options) {
       })
     })
   })
-
 }
