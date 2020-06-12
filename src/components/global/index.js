@@ -7,7 +7,14 @@ import Ross from './Ross.vue'
 import Rachel from './Rachel.vue'
 import Phoebe from './Phoebe.vue'
 import Joey from './Joey.vue'
-import { ChevronLeftIcon, ChevronRightIcon } from 'vue-feather-icons'
+import {
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  TwitterIcon,
+  FacebookIcon,
+  MailIcon,
+  GithubIcon
+} from 'vue-feather-icons'
 
 export default {
   install (Vue) {
@@ -24,5 +31,9 @@ export default {
     // icons
     Vue.component('chevron-left-icon', ChevronLeftIcon)
     Vue.component('chevron-right-icon', ChevronRightIcon)
+    Vue.component('twitter-icon', TwitterIcon)
+    Vue.component('facebook-icon', FacebookIcon)
+    Vue.component('mail-icon', MailIcon)
+    Vue.component('github-icon', GithubIcon)
   }
 }
