@@ -20,6 +20,9 @@ module.exports = {
           form: 'var(--bg-background-form)',
           border: 'var(--color-ui-border)'
         },
+        navbar: {
+          primary: 'var(--bg-navbar-primary)',
+        },
         primary: 'var(--text-primary)',
         copy: {
           primary: 'var(--text-copy-primary)',

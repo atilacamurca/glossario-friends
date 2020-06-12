@@ -1,6 +1,6 @@
 <template functional>
   <Layout>
-    <div class="container mt-4 mb-24 mx-auto">
+    <div class="bg-white rounded container mt-8 py-8 mb-24 mx-auto">
       <div class="flex flex-col text-center w-full mb-12">
         <h1 class="sm:text-3xl text-2xl font-bold title-font mb-4 text-blue-700">
           Temporadas

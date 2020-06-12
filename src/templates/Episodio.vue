@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class="container mx-auto my-16">
+    <div class="bg-white rounded container mx-auto my-16">
       <div class="flex flex-wrap items-start justify-start">
         <div
           class="order-2 w-full md:w-1/3 sm:pl-4 md:pl-6 lg:pl-8 sticky"
@@ -8,7 +8,7 @@
         >
           <OnThisPage />
         </div>
-        <div class="order-1 w-full md:w-2/3">
+        <div class="order-1 w-full md:w-2/3 mt-8">
           <cod-episodio v-bind="$page.episodio">
           </cod-episodio>
           <div class="text-4xl font-bold leading-tight mb-2">

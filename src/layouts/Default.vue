@@ -1,9 +1,9 @@
 <template>
   <div
-    class="content-wrapper bg-background-primary font-sans text-primary leading-normal flex flex-col min-h-screen"
+    class="content-wrapper bg-background-primary background-pattern font-sans text-primary leading-normal flex flex-col min-h-screen"
     :class="theme"
   >
-    <header class="sticky top-0 z-20 bg-background-primary border-b border-b-ui-border shadow">
+    <header class="sticky top-0 z-20 bg-navbar-primary border-b border-b-ui-border shadow">
       <div class="border-t-8 border-blue-600">
         <nav class="container mx-auto flex flex-wrap justify-between items-center py-3">
           <div>
