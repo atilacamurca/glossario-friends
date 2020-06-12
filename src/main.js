@@ -33,5 +33,12 @@ export default function (Vue, { router, head, isClient }) {
     href: 'https://fonts.googleapis.com/css?family=Nunito+Sans:400,700'
   })
 
+  // Google Site Verification
+  head.meta.push({
+    key: 'google-site-verification',
+    name: 'google-site-verification',
+    content: '551dfMT65KBuC9QRrpoD7biVpwP67EfWB5zQhnuV27Y'
+  })
+
   head.htmlAttrs = { lang: 'pt-br' }
 }
