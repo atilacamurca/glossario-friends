@@ -7,6 +7,7 @@ import Ross from './Ross.vue'
 import Rachel from './Rachel.vue'
 import Phoebe from './Phoebe.vue'
 import Joey from './Joey.vue'
+import Janice from './Janice.vue'
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
@@ -27,6 +28,7 @@ export default {
     Vue.component('rachel', Rachel)
     Vue.component('phoebe', Phoebe)
     Vue.component('joey', Joey)
+    Vue.component('janice', Janice)
 
     // icons
     Vue.component('chevron-left-icon', ChevronLeftIcon)
