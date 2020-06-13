@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "gridsome-plugin-tailwindcss": "^2.2.48",
+    "netlify-plugin-submit-sitemap": "^0.1.4",
     "reading-time": "^1.2.0",
     "tailwindcss": "^1.4.6"
   }
