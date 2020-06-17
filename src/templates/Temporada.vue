@@ -15,12 +15,22 @@
           :key="item.node.path"
           class="py-8 flex flex-wrap md:flex-no-wrap"
         >
-          <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-            <div>
+          <div class="md:w-64 md:mb-0 mb-6 md:mr-5 flex-shrink-0 flex flex-col w-full">
+            <div class="flex justify-between">
               <cod-episodio v-bind="item.node">
               </cod-episodio>
+              <div class="mt-1 text-gray-600 text-sm">{{ item.node.date }}</div>
             </div>
-            <span class="mt-1 text-gray-600 text-sm">{{ item.node.date }}</span>
+            <div class="rounded shadow lg:hover:shadow-lg">
+              <g-link
+              :to="item.node.path">
+                <g-image
+                  :src="item.node.image"
+                  width="500"
+                  class="w-full rounded object-cover object-center"
+                  :alt="item.node.title"/>
+              </g-link>
+            </div>
           </div>
           <div class="md:flex-grow">
             <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">
@@ -61,6 +71,7 @@ query Episodios ($temporada: Int) {
         episodio
         date (format: "MMMM D, Y", locale: "pt-BR")
         summary
+        image
       }
     }
   }
