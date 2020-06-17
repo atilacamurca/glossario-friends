@@ -19,9 +19,16 @@
     "vue-scrollto": "^2.18.1"
   },
   "devDependencies": {
+    "dotenv": "^8.2.0",
     "gridsome-plugin-tailwindcss": "^2.2.48",
+    "image-downloader": "^4.0.1",
+    "lodash.padstart": "^4.6.1",
+    "mkdirp": "^1.0.4",
+    "moviedb-promise": "^3.0.3",
     "netlify-plugin-submit-sitemap": "^0.1.4",
     "reading-time": "^1.2.0",
-    "tailwindcss": "^1.4.6"
+    "recursive-readdir": "^2.2.2",
+    "tailwindcss": "^1.4.6",
+    "trakt.tv": "^8.0.0"
   }
 }
