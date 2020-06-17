@@ -2,6 +2,7 @@ const recursive = require("recursive-readdir")
 const fs = require('fs')
 const mkdirp = require('mkdirp')
 const padStart = require('lodash.padstart')
+const yaml = require('js-yaml')
 const download = require('image-downloader')
 
 ;(async function () {
@@ -25,13 +26,17 @@ async function saveMarkdown (file) {
   console.log('exportando season', season, 'episode', episode)
   const basePath = `${process.cwd()}/temporadas-build/S${padStart(season, 2, '0')}`
   mkdirp.sync(`${basePath}/img/${episode}`)
+
+  const config = {
+    title: data.name,
+    temporada: parseInt(season),
+    episodio: parseInt(episode),
+    date: data.air_date,
+    summary: data.overview,
+    image: `./img/${episode}/thumb-medium.jpg`
+  }
   const content = `---
-title: ${data.name}
-temporada: ${season}
-episodio: ${episode}
-date: ${data.air_date}
-summary: ${data.overview}
-image: ./img/${episode}/thumb-medium.jpg
+${yaml.safeDump(config)}
 ---
 `
   fs.writeFileSync(`${basePath}/S${padStart(season, 2, '0')}E${padStart(episode, 2, '0')}.md`, content)
