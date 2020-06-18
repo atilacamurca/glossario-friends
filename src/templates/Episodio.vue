@@ -7,7 +7,7 @@
           style="top: 4rem"
         >
           <OnThisPage>
-            <div class="w-64 rounded shadow">
+            <div class="w-full md:w-48 lg:w-64 rounded shadow">
               <g-image
                   :src="$page.episodio.image"
                   width="500"
