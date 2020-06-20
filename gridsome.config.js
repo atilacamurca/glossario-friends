@@ -84,6 +84,26 @@ module.exports = {
         cacheTime: 600000, // default
       }
     },
+    {
+      use: "gridsome-plugin-pwa",
+      options: {
+        title: siteName,
+        startUrl: "/",
+        display: "standalone",
+        statusBarStyle: "default",
+        manifestPath: "manifest.json",
+        disableServiceWorker: true,
+        serviceWorkerPath: "service-worker.js",
+        cachedFileTypes: "js,json,css,html,png,jpg,jpeg,svg",
+        shortName: siteName,
+        themeColor: "#3182ce",
+        backgroundColor: "#f7fafc",
+        icon: "src/favicon-pwa.png",
+        msTileImage: "",
+        msTileColor: "#3182ce",
+        gcmSenderId: undefined,
+      },
+    }
   ],
   transformers: {
     remark: {
