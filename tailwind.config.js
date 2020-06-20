@@ -55,5 +55,6 @@ module.exports = {
   },
   plugins: [
     // Some useful comment
-  ]
+  ],
+  purge: false
 }
