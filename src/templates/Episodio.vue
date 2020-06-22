@@ -9,16 +9,31 @@
           <OnThisPage>
             <div class="w-full md:w-48 lg:w-64 rounded shadow">
               <g-image
-                  :src="$page.episodio.image"
-                  width="500"
-                  class="rounded"
-                  :alt="$page.episodio.title"/>
+                :src="$page.episodio.image"
+                width="500"
+                class="rounded"
+                :alt="$page.episodio.title"
+              />
             </div>
           </OnThisPage>
         </div>
         <div class="order-1 w-full md:w-2/3">
-          <cod-episodio v-bind="$page.episodio">
-          </cod-episodio>
+          <div class="flex justify-between">
+            <cod-episodio :cod-episodio="$page.episodio.codEpisodio">
+            </cod-episodio>
+            <div class="flex">
+              <twitter-button
+                class="mx-2"
+                :page_url="pageUrl"
+                :page_title="pageTitle"
+              ></twitter-button>
+              <facebook-button
+                class="mx-2"
+                :page_url="pageUrl"
+                :page_title="pageTitle"
+              ></facebook-button>
+            </div>
+          </div>
           <div class="text-4xl font-bold leading-tight mb-2">
             {{ $page.episodio.title }}
           </div>
@@ -32,7 +47,8 @@
           </div>
           <div
             v-if="$page.episodio.headings.length === 0"
-            class="text-center bg-gray-200 p-4 rounded-lg mb-8">
+            class="text-center bg-gray-200 p-4 rounded-lg mb-8"
+          >
             <div class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
               Episódio ainda não está concluído
             </div>
@@ -96,6 +112,7 @@
 <page-query>
 query Episodio ($path: String!) {
   episodio (path: $path) {
+    codEpisodio
     title
     temporada
     episodio
@@ -114,11 +131,64 @@ query Episodio ($path: String!) {
 }
 </page-query>
 
+<static-query>
+  query {
+    metadata {
+      siteUrl
+      siteDescription
+    }
+  }
+</static-query>
+
 <script>
 import OnThisPage from '~/components/OnThisPage.vue';
 export default {
   components: {
     OnThisPage
+  },
+  computed: {
+    pageTitle () {
+      const { codEpisodio, title } = this.$page.episodio
+      return `Conheça as referências de ${codEpisodio} '${title}' de #Friends`
+    },
+    pageUrl () {
+      return `${this.$static.metadata.siteUrl}${this.$page.episodio.path}`
+    },
+    pageImage () {
+      return `${this.$static.metadata.siteUrl}${this.$page.episodio.image.src}`
+    }
+  },
+  metaInfo () {
+    return {
+      meta: [
+        // Open Graph / Facebook
+        {
+          name: 'og:title',
+          content: `${this.$static.metadata.siteDescription}`
+        },
+        {
+          name: 'og:description',
+          content: this.pageTitle
+        },
+        {
+          name: 'og:image',
+          content: this.pageImage
+        },
+        // Twitter
+        {
+          name: 'twitter:image',
+          content: this.pageImage
+        },
+        {
+          name: 'twitter:title',
+          content: `${this.$static.metadata.siteDescription}`
+        },
+        {
+          name: 'twitter:description',
+          content: this.pageTitle
+        }
+      ]
+    }
   }
 }
 </script>

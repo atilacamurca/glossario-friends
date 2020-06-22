@@ -20,6 +20,12 @@ const temporadas = {
   '10': 18,
 }
 
+function pad(text, size) {
+  var s = text.toString();
+  while (s.length < (size || 2)) { s = '0' + s; }
+  return s;
+}
+
 module.exports = function (api, options) {
   api.loadSource(({ addSchemaResolvers }) => {
     addSchemaResolvers({
@@ -52,6 +58,13 @@ module.exports = function (api, options) {
               return `/temporada/${temporada + 1}`
             }
             return `/temporada/${temporada}/episodio/${episodio + 1}`
+          }
+        },
+        codEpisodio: {
+          type: 'String',
+          resolve (obj) {
+            const { temporada, episodio } = obj
+            return `S${pad(temporada)}E${pad(episodio)}`
           }
         }
       }
