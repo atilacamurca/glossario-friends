@@ -40,5 +40,35 @@ export default function (Vue, { router, head, isClient }) {
     content: '551dfMT65KBuC9QRrpoD7biVpwP67EfWB5zQhnuV27Y'
   })
 
+  head.meta.push({
+    name: 'robots',
+    content: 'index,follow'
+  })
+
+  // Twitter
+  head.meta.push({
+    name: 'twitter:card',
+    content: 'summary_large_image'
+  })
+  head.meta.push({
+    name: 'twitter:creator',
+    content: '@GlossarioFriend'
+  })
+  head.meta.push({
+    name: 'twitter:site',
+    content: '@GlossarioFriend'
+  })
+
+  // Open Graph / Facebook
+  head.meta.push({
+    key: 'og:locale',
+    name: 'og:locale',
+    content: 'pt_BR'
+  })
+  head.meta.push({
+    name: 'og:type',
+    content: 'website'
+  })
+
   head.htmlAttrs = { lang: 'pt-br' }
 }

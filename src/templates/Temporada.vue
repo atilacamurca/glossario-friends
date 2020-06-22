@@ -17,7 +17,7 @@
         >
           <div class="md:w-64 md:mb-0 mb-6 md:mr-5 flex-shrink-0 flex flex-col w-full">
             <div class="flex justify-between">
-              <cod-episodio v-bind="item.node">
+              <cod-episodio :cod-episodio="item.node.codEpisodio">
               </cod-episodio>
               <div class="mt-1 text-gray-600 text-sm">{{ item.node.date }}</div>
             </div>
@@ -66,6 +66,7 @@ query Episodios ($temporada: Int) {
     edges {
       node {
         path
+        codEpisodio
         title
         temporada
         episodio

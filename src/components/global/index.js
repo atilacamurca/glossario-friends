@@ -17,6 +17,9 @@ import {
   GithubIcon
 } from 'vue-feather-icons'
 
+import FacebookButton from './social-media/FacebookButton.vue'
+import TwitterButton from './social-media/TwitterButton.vue'
+
 export default {
   install (Vue) {
     Vue.component('cena', Cena)
@@ -37,5 +40,8 @@ export default {
     Vue.component('facebook-icon', FacebookIcon)
     Vue.component('mail-icon', MailIcon)
     Vue.component('github-icon', GithubIcon)
+
+    Vue.component('facebook-button', FacebookButton)
+    Vue.component('twitter-button', TwitterButton)
   }
 }
