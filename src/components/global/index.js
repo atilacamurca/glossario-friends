@@ -10,6 +10,7 @@ import Joey from './Joey.vue'
 import Janice from './Janice.vue'
 import David from './David.vue'
 import Max from './Max.vue'
+import Carol from './Carol.vue'
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
@@ -36,6 +37,7 @@ export default {
     Vue.component('janice', Janice)
     Vue.component('david', David)
     Vue.component('max', Max)
+    Vue.component('carol', Carol)
 
     // icons
     Vue.component('chevron-left-icon', ChevronLeftIcon)
