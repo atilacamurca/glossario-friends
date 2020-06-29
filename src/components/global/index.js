@@ -1,5 +1,6 @@
 import Cena from './Cena.vue'
 import Dialogo from './Dialogo.vue'
+import Musica from './Musica.vue'
 import CodEpisodio from './CodEpisodio.vue'
 import Chandler from './Chandler.vue'
 import Monica from './Monica.vue'
@@ -17,8 +18,11 @@ import {
   TwitterIcon,
   FacebookIcon,
   MailIcon,
-  GithubIcon
+  GithubIcon,
+  MusicIcon
 } from 'vue-feather-icons'
+
+import LanguageIcon from './LanguageIcon.vue'
 
 import FacebookButton from './social-media/FacebookButton.vue'
 import TwitterButton from './social-media/TwitterButton.vue'
@@ -27,6 +31,7 @@ export default {
   install (Vue) {
     Vue.component('cena', Cena)
     Vue.component('dialogo', Dialogo)
+    Vue.component('musica', Musica)
     Vue.component('cod-episodio', CodEpisodio)
     Vue.component('chandler', Chandler)
     Vue.component('monica', Monica)
@@ -46,6 +51,8 @@ export default {
     Vue.component('facebook-icon', FacebookIcon)
     Vue.component('mail-icon', MailIcon)
     Vue.component('github-icon', GithubIcon)
+    Vue.component('music-icon', MusicIcon)
+    Vue.component('language-icon', LanguageIcon)
 
     Vue.component('facebook-button', FacebookButton)
     Vue.component('twitter-button', TwitterButton)
