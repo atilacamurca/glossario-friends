@@ -12,6 +12,7 @@ import Janice from './Janice.vue'
 import David from './David.vue'
 import Max from './Max.vue'
 import Carol from './Carol.vue'
+import Gloria from './Gloria.vue'
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
@@ -43,6 +44,7 @@ export default {
     Vue.component('david', David)
     Vue.component('max', Max)
     Vue.component('carol', Carol)
+    Vue.component('gloria', Gloria)
 
     // icons
     Vue.component('chevron-left-icon', ChevronLeftIcon)
