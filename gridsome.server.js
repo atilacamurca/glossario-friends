@@ -66,6 +66,12 @@ module.exports = function (api, options) {
             const { temporada, episodio } = obj
             return `S${pad(temporada)}E${pad(episodio)}`
           }
+        },
+        noRefs: {
+          type: 'Boolean',
+          resolve (obj) {
+            return !! obj.noRefs
+          }
         }
       }
     })
