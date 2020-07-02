@@ -39,14 +39,15 @@
           </div>
           <div class="text-xl text-gray-600 mb-4">
             {{ $page.episodio.date }}
-            &middot;
+            &bullet;
             {{ $page.episodio.timeToRead }}
           </div>
           <div class="content markdown-body mb-8">
             <VueRemarkContent />
           </div>
+          <no-refs v-if="$page.episodio.noRefs"></no-refs>
           <div
-            v-if="$page.episodio.headings.length === 0"
+            v-else-if="$page.episodio.headings.length === 0"
             class="text-center bg-gray-200 p-4 rounded-lg mb-8"
           >
             <div class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
@@ -122,6 +123,7 @@ query Episodio ($path: String!) {
     linkProximo
     path
     image
+    noRefs
     headings {
       depth
       value
@@ -141,10 +143,12 @@ query Episodio ($path: String!) {
 </static-query>
 
 <script>
-import OnThisPage from '~/components/OnThisPage.vue';
+import OnThisPage from '~/components/OnThisPage.vue'
+import NoRefs from '~/components/NoRefs.vue'
 export default {
   components: {
-    OnThisPage
+    OnThisPage,
+    NoRefs
   },
   computed: {
     pageTitle () {
