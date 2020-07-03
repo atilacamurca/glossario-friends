@@ -4,6 +4,11 @@ const { paramCase } = require('param-case')
 const { Str, RawInline } = pandoc
 
 async function action (elt, format, meta) {
+  // Identificar Vue, usar RawInline
+  // if (elt.t === 'RawInline') {
+  //   return RawInline('latex', `RawInline: ${JSON.stringify(elt)}`)
+  // }
+
   if (elt.t === 'Image') {
     const optionsArray = elt.c[0]
     const captionArray = elt.c[1]

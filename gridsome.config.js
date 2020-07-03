@@ -52,7 +52,8 @@ module.exports = {
           'remark-autolink-headings',
           'remark-external-links',
           'remark-squeeze-paragraphs',
-          'remark-fix-guillemets'
+          'remark-fix-guillemets',
+          'remark-attr'
         ]
       }
     },
