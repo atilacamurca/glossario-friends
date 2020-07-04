@@ -4,7 +4,6 @@ set -o nounset
 set -o errexit
 set -o pipefail
 
-
 # bibtex main
 
 # compile episodes
