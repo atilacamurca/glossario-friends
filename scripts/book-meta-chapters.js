@@ -1,8 +1,4 @@
 var vfile = require('to-vfile')
-// var report = require('vfile-reporter')
-var unified = require('unified')
-var parse = require('remark-parse')
-var stringify = require('remark-stringify')
 var frontmatter = require('remark-frontmatter')
 const path = require('path')
 const { cwd } = require('process')
@@ -59,6 +55,9 @@ const temporadas = {
 const ep = readEpisode(1, 1)
 generateTemporada(ep.temporada, `\\part{Temporada ${temporadas['1'].part}}
 \\chapter{${ep.title}}
+
+\\textbf{Resumo} ${ep.summary}
+
 \\input{S${padTwo(ep.temporada)}/S${padTwo(ep.temporada)}E${padTwo(ep.episodio)}}
 `)
 

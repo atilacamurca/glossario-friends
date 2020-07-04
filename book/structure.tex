@@ -275,7 +275,8 @@
 %	DEFINITION OF COLORED BOXES
 %----------------------------------------------------------------------------------------
 
-\RequirePackage[framemethod=default]{mdframed} % Required for creating the theorem, definition, exercise and corollary boxes
+% \RequirePackage[framemethod=default]{mdframed} % Required for creating the theorem, definition, exercise and corollary boxes
+\RequirePackage[framemethod=tikz]{mdframed} % Required for creating the theorem, definition, exercise and corollary boxes
 
 % Theorem box
 \newmdenv[skipabove=7pt,
@@ -468,8 +469,8 @@ innerbottommargin=5pt]{cBox}
 \node at (current page.north west)
 {\begin{tikzpicture}[remember picture,overlay]
 \node[anchor=north west,inner sep=0pt] at (0,0) {\ifusechapterimage\includegraphics[width=\paperwidth]{\thechapterimage}\fi};
-\draw[anchor=west] (\Gm@lmargin,-9cm) node [line width=2pt,rounded corners=15pt,draw=ocre,fill=white,fill opacity=0.5,inner sep=15pt]{\strut\makebox[22cm]{}};
-\draw[anchor=west] (\Gm@lmargin+.3cm,-9cm) node {\huge\sffamily\bfseries\color{black}\thechapter\autodot~#1\strut};
+\draw[anchor=west] (\Gm@lmargin,-4cm) node [line width=2pt,rounded corners=9pt,draw=ocre,fill=white,fill opacity=0.5,inner sep=15pt]{\strut\makebox[22cm]{}};
+\draw[anchor=west] (\Gm@lmargin+.3cm,-4cm) node {\huge\sffamily\bfseries\color{black}\thechapter\autodot~#1\strut};
 \end{tikzpicture}};
 \end{tikzpicture}
 \else
@@ -481,7 +482,7 @@ innerbottommargin=5pt]{cBox}
 \draw[anchor=west] (\Gm@lmargin+.3cm,-9cm) node {\huge\sffamily\bfseries\color{black}#1\strut};
 \end{tikzpicture}};
 \end{tikzpicture}
-\fi\fi\par\vspace*{270\p@}}}
+\fi\fi\par\vspace*{60\p@}}}
 
 %-------------------------------------------
 
@@ -533,5 +534,17 @@ addtohook={%
 
 \usepackage{chngpage}
 \usepackage{calc}
+% \usepackage{mwe}
+\usepackage[skins]{tcolorbox}
 
 \renewcommand{\contentsname}{Conteúdo}
+\definecolor{dialogoBorder}{RGB}{225, 228, 232}
+
+% Habilitar para ter o comando \roundpic
+% Ref: <https://subscription.packtpub.com/book/hardware_and_creative/9781784395148/4/ch04lvl1sec46/shaping-an-image-like-a-circle>
+% \newcommand{\roundpic}[4][]{
+%   \tikz\node [circle, minimum width = #2,
+%     path picture = {
+%       \node [#1] at (path picture bounding box.center) {
+%         \includegraphics[scale=#3]{#4}};
+%     }] {};}
