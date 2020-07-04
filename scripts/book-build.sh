@@ -10,6 +10,7 @@ set -o pipefail
 mkdir -p ./book/S01
 pandoc \
   -f markdown \
+  --shift-heading-level-by=-1 \
   -o ./book/S01/S01E01.tex \
   ./temporadas/S01/S01E01.md \
   --filter ./scripts/pandoc-filter/bin.js
