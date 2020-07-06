@@ -11,6 +11,7 @@ static/rss.xml
 temporadas-build
 tmp-eps
 book/main.pdf
+book/**/img
 
 
 # Created by https://www.toptal.com/developers/gitignore/api/latex
