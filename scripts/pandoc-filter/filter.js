@@ -86,8 +86,18 @@ function toFigure (filepath, caption, opt) {
   }
   return RawInline('latex', `\\begin{figure}
   \\centering
-  \\includegraphics[width=${width},keepaspectratio]{${filepath}}
-  ${toFigureCaption(caption)}
+  \\begin{tikzpicture}
+    \\node [inner sep=0pt] at (0,0) {
+      \\includegraphics[width=${width},keepaspectratio]{${filepath}}
+    };
+    \\draw [white, rounded corners=\\ClipSep, line width=\\ClipSep]
+    (current bounding box.north west) --
+    (current bounding box.north east) --
+    (current bounding box.south east) --
+    (current bounding box.south west) -- cycle
+    ;
+    \\end{tikzpicture}
+    ${toFigureCaption(caption)}
 \\end{figure}`)
 }
 
