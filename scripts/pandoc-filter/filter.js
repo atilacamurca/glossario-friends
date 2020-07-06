@@ -5,7 +5,8 @@ const padStart = require('lodash.padstart')
 const { Str, RawInline } = pandoc
 
 const builder = {
-  cena: ''
+  cena: '',
+  dialogo: []
 }
 
 async function action (elt, format, meta) {
@@ -15,12 +16,28 @@ async function action (elt, format, meta) {
     // return RawInline('latex', `RawInline: ${JSON.stringify(elt)}`)
     const aux = parseRawInline(elt)
     if (aux.hasNext) {
-      builder[aux.type] += aux.content
+      switch (aux.type) {
+        case 'cena':
+          builder.cena += aux.content
+          break;
+        case 'dialogo':
+          if (aux.content) {
+            builder.dialogo.push(aux.content)
+          }
+          break;
+      }
       return
     } else {
-      const content = builder[aux.type] + aux.content
-      builder[aux.type] = ''
-      return RawInline('latex', content)
+      switch (aux.type) {
+        case 'cena':
+          const content = builder.cena
+            + builder.dialogo.join('\n\\bigskip\n')
+            + aux.content
+          builder.cena = ''
+          builder.dialogo = []
+          return RawInline('latex', content)
+      }
+      return
     }
   }
 
@@ -37,7 +54,7 @@ async function action (elt, format, meta) {
 
     const imgOptions = fromPairs(optionsArray[2])
     if (!imgOptions.fullpage) {
-      return toFigure(filepath, caption)
+      return toFigure(filepath, caption, imgOptions)
     }
 
     return toFigureFullPage(filepath, caption, imgOptions)
@@ -58,10 +75,18 @@ function toFigureFullPage (filepath, caption, { clipb, clipt}) {
 \\end{figure}`)
 }
 
-function toFigure (filepath, caption) {
+function toFigure (filepath, caption, opt) {
+  let width = '0.8\\textwidth'
+  if (opt.bookwidth) {
+    if (opt.bookwidth.includes('%')) {
+      const percentage = opt.bookwidth.replace(/\D/g, '')
+      const decimal = parseFloat((percentage / 100).toFixed(1))
+      width = `${decimal}\\textwidth`
+    }
+  }
   return RawInline('latex', `\\begin{figure}
   \\centering
-  \\includegraphics[width=0.8\\textwidth,keepaspectratio]{${filepath}}
+  \\includegraphics[width=${width},keepaspectratio]{${filepath}}
   ${toFigureCaption(caption)}
 \\end{figure}`)
 }
@@ -127,7 +152,7 @@ function parseRawInline(elt) {
     const matchOrig = value.match(/original="(.*)"/)
     const matchTrad = value.match(/traducao="(.*)"/)
     return {
-      type: 'cena',
+      type: 'dialogo',
       content: dialogo('./assets/img/rachel.png', 'Rachel', matchOrig[1], matchTrad[1]),
       hasNext: true
     }
@@ -137,7 +162,7 @@ function parseRawInline(elt) {
     const matchOrig = value.match(/original="(.*)"/)
     const matchTrad = value.match(/traducao="(.*)"/)
     return {
-      type: 'cena',
+      type: 'dialogo',
       content: dialogo('./assets/img/phoebe.png', 'Phoebe', matchOrig[1], matchTrad[1]),
       hasNext: true
     }
@@ -147,7 +172,7 @@ function parseRawInline(elt) {
     const matchOrig = value.match(/original="(.*)"/)
     const matchTrad = value.match(/traducao="(.*)"/)
     return {
-      type: 'cena',
+      type: 'dialogo',
       content: dialogo('./assets/img/ross.png', 'Ross', matchOrig[1], matchTrad[1]),
       hasNext: true
     }
@@ -157,7 +182,7 @@ function parseRawInline(elt) {
     const matchOrig = value.match(/original="(.*)"/)
     const matchTrad = value.match(/traducao="(.*)"/)
     return {
-      type: 'cena',
+      type: 'dialogo',
       content: dialogo('./assets/img/chandler.png', 'Chandler', matchOrig[1], matchTrad[1]),
       hasNext: true
     }
@@ -167,7 +192,7 @@ function parseRawInline(elt) {
     const matchOrig = value.match(/original="(.*)"/)
     const matchTrad = value.match(/traducao="(.*)"/)
     return {
-      type: 'cena',
+      type: 'dialogo',
       content: dialogo('./assets/img/monica.png', 'Monica', matchOrig[1], matchTrad[1]),
       hasNext: true
     }
@@ -175,7 +200,7 @@ function parseRawInline(elt) {
 
   if (value.startsWith('</')) {
     return {
-      type: 'cena',
+      type: 'dialogo',
       content: '',
       hasNext: true
     }
@@ -234,8 +259,6 @@ function dialogo(imagem, personagem, original, traducao) {
   \\textbf{${original}}\\\\
   ${traducao}
 \\end{minipage}
-
-\\bigskip
 `
 }
 
