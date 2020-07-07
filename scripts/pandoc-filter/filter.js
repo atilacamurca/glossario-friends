@@ -41,6 +41,16 @@ async function action (elt, format, meta) {
     }
   }
 
+  if (elt.t === 'Link') {
+    const [[id, classes, kv], inline, [url, targetTitle]] = elt.c;
+    if (url.includes('/temporada')) {
+      // link interno, deixar como estar por enquanto
+      return
+    }
+    const title = await metaArray2Val(inline)
+    return RawInline('latex', `\\sloppy ${title}. \\url{${url}}`)
+  }
+
   if (elt.t === 'Image') {
     const optionsArray = elt.c[0]
     const captionArray = elt.c[1]
@@ -99,6 +109,13 @@ function toFigure (filepath, caption, opt) {
     \\end{tikzpicture}
     ${toFigureCaption(caption)}
 \\end{figure}`)
+}
+
+async function metaArray2Val(a) {
+  return a.reduce(function (prevVal, currVal, idx) {
+    if (currVal.t === 'Space') return prevVal + ' '
+    if (currVal.t === 'Str') return prevVal + currVal.c
+  }, '')
 }
 
 async function meta2val (v) {
