@@ -2,11 +2,17 @@ var pandoc = require('pandoc-filter-promisified')
 const fromPairs = require('lodash.frompairs')
 const { paramCase } = require('param-case')
 const padStart = require('lodash.padstart')
+const parseRawInline = require('./parse-raw-inline')
 const { Str, RawInline } = pandoc
 
 const builder = {
   cena: '',
-  dialogo: []
+  dialogo: [],
+  musica: '',
+  consumirLetra: false,
+  iconeLetra: '',
+  letraAtual: '',
+  letra: []
 }
 
 async function action (elt, format, meta) {
@@ -25,20 +31,55 @@ async function action (elt, format, meta) {
             builder.dialogo.push(aux.content)
           }
           break;
+        case 'musica':
+          builder.musica += aux.content
+          break;
+        case 'letra':
+          builder.consumirLetra = true
+          builder.iconeLetra = aux.content
+          break;
       }
       return
     } else {
+      let content
       switch (aux.type) {
         case 'cena':
-          const content = builder.cena
-            + builder.dialogo.join('\n\\bigskip\n')
+          content = builder.cena
+            + builder.dialogo.join('\n')
             + aux.content
           builder.cena = ''
           builder.dialogo = []
           return RawInline('latex', content)
+        case 'musica':
+          content = builder.musica
+            + builder.letra.join('\n\\tcblower\n')
+            + '\n'
+            + aux.content
+          builder.musica = ''
+          builder.letra = []
+          return RawInline('latex', content)
+        case 'letra':
+          builder.letra.push(builder.letraAtual)
+          builder.letraAtual = ''
+          builder.iconeLetra = ''
+          builder.consumirLetra = false
+          break;
+        case 'desconhecido':
+          return RawInline('latex', JSON.stringify(elt))
       }
       return
     }
+  }
+
+  if (builder.consumirLetra) {
+    // return RawInline('latex', `RawInline: ${JSON.stringify(elt)}`)
+    if (!builder.letraAtual && elt.t === 'SoftBreak') {
+      // skip first SoftBreak
+      builder.letraAtual += builder.iconeLetra
+      return
+    }
+    builder.letraAtual += await elt2val(elt)
+    return Str('') // consume text
   }
 
   if (elt.t === 'Link') {
@@ -71,11 +112,11 @@ async function action (elt, format, meta) {
   }
 }
 
-function toFigureCaption(caption) {
+function toFigureCaption (caption) {
   return `\\caption{${caption}\\label{fig:${paramCase(caption)}}}`
 }
 
-function toFigureFullPage (filepath, caption, { clipb, clipt}) {
+function toFigureFullPage (filepath, caption, { clipb, clipt }) {
   return RawInline('latex', `\\begin{figure}[!ht]
   \\begin{adjustwidth}{-\\oddsidemargin-1in}{-\\rightmargin}
     \\centering
@@ -111,11 +152,17 @@ function toFigure (filepath, caption, opt) {
 \\end{figure}`)
 }
 
-async function metaArray2Val(a) {
+async function metaArray2Val (a) {
   return a.reduce(function (prevVal, currVal, idx) {
     if (currVal.t === 'Space') return prevVal + ' '
     if (currVal.t === 'Str') return prevVal + currVal.c
   }, '')
+}
+
+async function elt2val (elt) {
+  if (elt.t === 'Space') return ' '
+  if (elt.t === 'SoftBreak') return '\\\\'
+  if (elt.t === 'Str') return elt.c
 }
 
 async function meta2val (v) {
@@ -155,138 +202,6 @@ async function meta2obj (varName, meta) {
 
 function padTwo (value) {
   return padStart(value, 2, '0')
-}
-
-function parseRawInline(elt) {
-  const [ type, value ] = elt.c
-  if (value === '<cena>') {
-    return {
-      type: 'cena',
-      content: beginCena(),
-      hasNext: true
-    }
-  }
-
-  if (value === '</cena>') {
-    return {
-      type: 'cena',
-      content: endCena(),
-      hasNext: false
-    }
-  }
-
-  if (value.startsWith('<rachel')) {
-    const matchOrig = value.match(/original="(.*)"/)
-    const matchTrad = value.match(/traducao="(.*)"/)
-    return {
-      type: 'dialogo',
-      content: dialogo('./assets/img/rachel.png', 'Rachel', matchOrig[1], matchTrad[1]),
-      hasNext: true
-    }
-  }
-
-  if (value.startsWith('<phoebe')) {
-    const matchOrig = value.match(/original="(.*)"/)
-    const matchTrad = value.match(/traducao="(.*)"/)
-    return {
-      type: 'dialogo',
-      content: dialogo('./assets/img/phoebe.png', 'Phoebe', matchOrig[1], matchTrad[1]),
-      hasNext: true
-    }
-  }
-
-  if (value.startsWith('<ross')) {
-    const matchOrig = value.match(/original="(.*)"/)
-    const matchTrad = value.match(/traducao="(.*)"/)
-    return {
-      type: 'dialogo',
-      content: dialogo('./assets/img/ross.png', 'Ross', matchOrig[1], matchTrad[1]),
-      hasNext: true
-    }
-  }
-
-  if (value.startsWith('<chandler')) {
-    const matchOrig = value.match(/original="(.*)"/)
-    const matchTrad = value.match(/traducao="(.*)"/)
-    return {
-      type: 'dialogo',
-      content: dialogo('./assets/img/chandler.png', 'Chandler', matchOrig[1], matchTrad[1]),
-      hasNext: true
-    }
-  }
-
-  if (value.startsWith('<monica')) {
-    const matchOrig = value.match(/original="(.*)"/)
-    const matchTrad = value.match(/traducao="(.*)"/)
-    return {
-      type: 'dialogo',
-      content: dialogo('./assets/img/monica.png', 'Monica', matchOrig[1], matchTrad[1]),
-      hasNext: true
-    }
-  }
-
-  if (value.startsWith('</')) {
-    return {
-      type: 'dialogo',
-      content: '',
-      hasNext: true
-    }
-  }
-
-  return {
-    type: 'cena',
-    content: '',
-    hasNext: true
-  }
-}
-
-// function beginCena() {
-//   return `\\begin{mdframed}[roundcorner=5pt,leftmargin=1, rightmargin=1,
-//   linecolor=dialogoBorder,outerlinewidth=.3,
-//   innerleftmargin=8,innertopmargin=8,innerbottommargin=8]
-// `
-// }
-
-function beginCena() {
-  return `\\begin{tcolorbox}[enhanced,center upper,
-    drop fuzzy shadow southeast, boxrule=0.3pt,
-    lower separated=false,
-    colframe=black!30!dialogoBorder,colback=white]
-`
-}
-
-// function endCena() {
-//   return `\\end{mdframed}
-// `
-// }
-
-function endCena() {
-  return `\\end{tcolorbox}
-`
-}
-
-function cena(value) {
-  return `\\begin{mdframed}[roundcorner=5pt,leftmargin=1, rightmargin=1,
-  linecolor=dialogoBorder,outerlinewidth=.3,
-  innerleftmargin=8,innertopmargin=8,innerbottommargin=8]
-${value}
-\\end{mdframed}
-`
-}
-
-function dialogo(imagem, personagem, original, traducao) {
-  return `\\begin{minipage}[c]{0.14\\linewidth}
-  \\raisebox{\\dimexpr-\\height+\\ht\\strutbox\\relax}{
-    \\includegraphics[width=1.5cm]{${imagem}}
-  }
-   & \\centering \\scriptsize{${personagem}}
-\\end{minipage}
-\\hspace{.1mm}
-\\begin{minipage}[c]{0.8\\linewidth}
-  \\textbf{${original}}\\\\
-  ${traducao}
-\\end{minipage}
-`
 }
 
 module.exports = function () {
