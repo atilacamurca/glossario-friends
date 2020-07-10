@@ -13,6 +13,7 @@ O arquivo markdown passa por um filtro para customizar:
 ## Requirements
 
 - [pandoc 2.10](https://github.com/jgm/pandoc/releases/tag/2.10)
+- `sudo apt install texlive-fonts-extra`
 
 ## Template
 

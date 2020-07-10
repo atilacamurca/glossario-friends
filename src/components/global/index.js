@@ -1,6 +1,7 @@
 import Cena from './Cena.vue'
 import Dialogo from './Dialogo.vue'
 import Musica from './Musica.vue'
+import Letra from './Letra.vue'
 import CodEpisodio from './CodEpisodio.vue'
 import Chandler from './Chandler.vue'
 import Monica from './Monica.vue'
@@ -33,6 +34,7 @@ export default {
     Vue.component('cena', Cena)
     Vue.component('dialogo', Dialogo)
     Vue.component('musica', Musica)
+    Vue.component('letra', Letra)
     Vue.component('cod-episodio', CodEpisodio)
     Vue.component('chandler', Chandler)
     Vue.component('monica', Monica)
