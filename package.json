@@ -3,7 +3,8 @@
   "scripts": {
     "build": "gridsome build",
     "develop": "gridsome develop",
-    "explore": "gridsome explore"
+    "explore": "gridsome explore",
+    "book:build": "./scripts/book-build.sh"
   },
   "dependencies": {
     "@gridsome/plugin-sitemap": "^0.3.0",
@@ -14,6 +15,7 @@
     "gridsome": "^0.7.18",
     "gridsome-plugin-remark-shiki": "^0.3.1",
     "gridsome-plugin-rss": "^1.2.0",
+    "remark-attr": "^0.11.1",
     "vue-feather-icons": "^5.0.0",
     "vue-fuse": "^2.2.1",
     "vue-scrollto": "^2.18.1"
@@ -24,14 +26,22 @@
     "gridsome-plugin-tailwindcss": "^2.2.48",
     "image-downloader": "^4.0.1",
     "js-yaml": "^3.14.0",
+    "lodash.find": "^4.6.0",
+    "lodash.frompairs": "^4.0.1",
     "lodash.padstart": "^4.6.1",
     "mkdirp": "^1.0.4",
     "moviedb-promise": "^3.0.3",
     "netlify-plugin-gridsome-cache": "^1.0.1",
     "netlify-plugin-submit-sitemap": "^0.1.4",
+    "pandoc-filter-promisified": "^0.1.0",
+    "param-case": "^3.0.3",
     "reading-time": "^1.2.0",
     "recursive-readdir": "^2.2.2",
+    "remark": "^12.0.0",
+    "remark-frontmatter": "^2.0.0",
     "tailwindcss": "^1.4.6",
-    "trakt.tv": "^8.0.0"
+    "to-vfile": "^6.1.0",
+    "trakt.tv": "^8.0.0",
+    "vfile-reporter": "^6.0.1"
   }
 }
