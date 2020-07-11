@@ -45,7 +45,7 @@ async function action (elt, format, meta) {
       switch (aux.type) {
         case 'cena':
           content = builder.cena
-            + builder.dialogo.join('\n')
+            + builder.dialogo.join('\n\\medskip\n')
             + aux.content
           builder.cena = ''
           builder.dialogo = []

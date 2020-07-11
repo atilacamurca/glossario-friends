@@ -18,53 +18,31 @@ module.exports = function parseRawInline (elt) {
   }
 
   if (value.startsWith('<rachel')) {
-    const matchOrig = value.match(/original="(.*)"/)
-    const matchTrad = value.match(/traducao="(.*)"/)
-    return {
-      type: 'dialogo',
-      content: dialogo('./assets/img/rachel.png', 'Rachel', matchOrig[1], matchTrad[1]),
-      hasNext: true
-    }
+    return criarDialogo('Rachel', 'rachel', value)
   }
 
   if (value.startsWith('<phoebe')) {
-    const matchOrig = value.match(/original="(.*)"/)
-    const matchTrad = value.match(/traducao="(.*)"/)
-    return {
-      type: 'dialogo',
-      content: dialogo('./assets/img/phoebe.png', 'Phoebe', matchOrig[1], matchTrad[1]),
-      hasNext: true
-    }
+    return criarDialogo('Phoebe', 'phoebe', value)
   }
 
   if (value.startsWith('<ross')) {
-    const matchOrig = value.match(/original="(.*)"/)
-    const matchTrad = value.match(/traducao="(.*)"/)
-    return {
-      type: 'dialogo',
-      content: dialogo('./assets/img/ross.png', 'Ross', matchOrig[1], matchTrad[1]),
-      hasNext: true
-    }
+    return criarDialogo('Ross', 'ross', value)
   }
 
   if (value.startsWith('<chandler')) {
-    const matchOrig = value.match(/original="(.*)"/)
-    const matchTrad = value.match(/traducao="(.*)"/)
-    return {
-      type: 'dialogo',
-      content: dialogo('./assets/img/chandler.png', 'Chandler', matchOrig[1], matchTrad[1]),
-      hasNext: true
-    }
+    return criarDialogo('Chandler', 'chandler', value)
   }
 
   if (value.startsWith('<monica')) {
-    const matchOrig = value.match(/original="(.*)"/)
-    const matchTrad = value.match(/traducao="(.*)"/)
-    return {
-      type: 'dialogo',
-      content: dialogo('./assets/img/monica.png', 'Monica', matchOrig[1], matchTrad[1]),
-      hasNext: true
-    }
+    return criarDialogo('Monica', 'monica', value)
+  }
+
+  if (value.startsWith('<carol-one')) {
+    return criarDialogo('Carol', 'carol-1', value)
+  }
+
+  if (value.startsWith('<joey')) {
+    return criarDialogo('Joey', 'joey', value)
   }
 
   if (/^<\/(carol|chandler|david|gloria|janice|joey|max|monica|obsession|phoebe|rachel|ross)/.test(value)) {
@@ -114,13 +92,6 @@ module.exports = function parseRawInline (elt) {
   }
 }
 
-// function beginCena() {
-//   return `\\begin{mdframed}[roundcorner=5pt,leftmargin=1, rightmargin=1,
-//   linecolor=dialogoBorder,outerlinewidth=.3,
-//   innerleftmargin=8,innertopmargin=8,innerbottommargin=8]
-// `
-// }
-
 function beginCena () {
   return `\\begin{tcolorbox}[enhanced,center upper,
     drop fuzzy shadow southeast, boxrule=0.3pt,
@@ -139,11 +110,6 @@ function beginMusica () {
 `
 }
 
-// function endCena() {
-//   return `\\end{mdframed}
-// `
-// }
-
 function endCena () {
   return `\\end{tcolorbox}
 `
@@ -152,6 +118,16 @@ function endCena () {
 function endMusica () {
   return `\\end{tcolorbox}
 `
+}
+
+function criarDialogo(personagem, imgFilename, value) {
+    const matchOrig = value.match(/original="(.*)"/)
+    const matchTrad = value.match(/traducao="(.*)"/)
+    return {
+      type: 'dialogo',
+      content: dialogo(`./assets/img/${imgFilename}.png`, personagem, matchOrig[1], matchTrad[1]),
+      hasNext: true
+    }
 }
 
 function adicionarIconeLetra(value) {

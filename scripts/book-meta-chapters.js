@@ -8,6 +8,9 @@ const yaml = require('js-yaml')
 const padStart = require('lodash.padstart')
 const mkdirp = require('mkdirp')
 const fs = require('fs')
+const dayjs = require('dayjs')
+require('dayjs/locale/pt-br')
+dayjs.locale('pt-br')
 
 const temporadas = {
   '1': {
@@ -52,14 +55,33 @@ const temporadas = {
   },
 }
 
-const ep = readEpisode(1, 1)
-generateTemporada(ep.temporada, `\\part{Temporada ${temporadas['1'].part}}
-\\chapter{${ep.title}}
+for (let key in temporadas) {
+  if (key !== '1') continue // hack
 
-\\textbf{Resumo} ${ep.summary}
+  const size =  2// temporadas[key].total;
+  let inputs = []
+  for (let i = 1; i <= size; i++) {
+    const ep = readEpisode(key, i)
+    var date = dayjs(ep.date)
+    inputs.push(generateInputEpisodio(ep, date))
+  }
+  generateTemporada(key, `\\part{Temporada ${temporadas['1'].part}}
 
-\\input{S${padTwo(ep.temporada)}/S${padTwo(ep.temporada)}E${padTwo(ep.episodio)}}
+${inputs.join('\n')}
 `)
+}
+
+function generateInputEpisodio(ep, date) {
+  return `\\chapter{${ep.title}}
+
+\\textbf{RESUMO $\\looparrowright$} ${ep.summary}
+
+\\begin{flushright}
+\\textcolor{gray600}{Exibido em ${date.format('MMMM, DD YYYY')}}
+\\end{flushright}
+\\input{S${padTwo(ep.temporada)}/S${padTwo(ep.temporada)}E${padTwo(ep.episodio)}}
+`
+}
 
 function readEpisode(temporada, episodio) {
   const filepath = path.join(cwd(), `temporadas/S${padTwo(temporada)}/S${padTwo(temporada)}E${padTwo(episodio)}.md`)
