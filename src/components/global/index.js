@@ -12,6 +12,7 @@ import Joey from './Joey.vue'
 import Janice from './Janice.vue'
 import David from './David.vue'
 import Max from './Max.vue'
+import CarolOne from './CarolOne.vue'
 import Carol from './Carol.vue'
 import Gloria from './Gloria.vue'
 import {
@@ -45,6 +46,7 @@ export default {
     Vue.component('janice', Janice)
     Vue.component('david', David)
     Vue.component('max', Max)
+    Vue.component('carol-one', CarolOne)
     Vue.component('carol', Carol)
     Vue.component('gloria', Gloria)
 
