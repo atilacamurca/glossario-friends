@@ -84,11 +84,11 @@ async function action (elt, format, meta) {
 
   if (elt.t === 'Link') {
     const [[id, classes, kv], inline, [url, targetTitle]] = elt.c;
+    const title = await metaArray2Val(inline)
     if (url.includes('/temporada')) {
       // link interno, deixar como estar por enquanto
-      return
+      return RawInline('latex', `\\textbf{\\textcolor{primarycolor}{${title}}}`)
     }
-    const title = await metaArray2Val(inline)
     return RawInline('latex', `\\sloppy ${title}. \\url{${url}}`)
   }
 
