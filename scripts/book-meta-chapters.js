@@ -58,7 +58,7 @@ const temporadas = {
 for (let key in temporadas) {
   if (key !== '1') continue // hack
 
-  const size =  2// temporadas[key].total;
+  const size =  3 // temporadas[key].total;
   let inputs = []
   for (let i = 1; i <= size; i++) {
     const ep = readEpisode(key, i)
@@ -74,7 +74,7 @@ ${inputs.join('\n')}
 function generateInputEpisodio(ep, date) {
   return `\\chapter{${ep.title}}
 
-\\textbf{RESUMO $\\looparrowright$} ${ep.summary}
+\\textbf{RESUMO $\\looparrowright$} ${safeLatex(ep.summary)}
 
 \\begin{flushright}
 \\textcolor{gray600}{Exibido em ${date.format('MMMM, DD YYYY')}}
@@ -100,4 +100,9 @@ function generateTemporada(temporada, content) {
 
 function padTwo(value) {
   return padStart(value, 2, '0')
+}
+
+function safeLatex(value) {
+  return value
+    .replace('$', '\\$')
 }
