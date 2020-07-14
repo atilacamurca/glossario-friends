@@ -29,6 +29,13 @@ pandoc \
   ./temporadas/S01/S01E03.md \
   --filter ./scripts/pandoc-filter/bin.js
 
+pandoc \
+  -f markdown \
+  --shift-heading-level-by=-1 \
+  -o ./book/S01/S01E04.tex \
+  ./temporadas/S01/S01E04.md \
+  --filter ./scripts/pandoc-filter/bin.js
+
 cd book
 pdflatex -shell-escape -interaction=nonstopmode main.tex
 
