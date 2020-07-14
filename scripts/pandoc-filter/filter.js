@@ -84,7 +84,7 @@ async function action (elt, format, meta) {
 
   if (elt.t === 'Link') {
     const [[id, classes, kv], inline, [url, targetTitle]] = elt.c;
-    const title = await metaArray2Val(inline)
+    const title = metaArray2Val(inline)
     if (url.includes('/temporada')) {
       // link interno, deixar como estar por enquanto
       return RawInline('latex', `\\textbf{\\textcolor{primarycolor}{${title}}}`)
@@ -101,6 +101,13 @@ async function action (elt, format, meta) {
     const caption = captionArray.reduce(function (prevVal, currVal, idx) {
       if (currVal.t === 'Space') return prevVal + ' '
       if (currVal.t === 'Str') return prevVal + currVal.c
+      if (currVal.t === 'Quoted') {
+        if (currVal.c[0].t == 'DoubleQuote') {
+          return prevVal + '``' + metaArray2Val(currVal.c[1]) + "''"
+        }
+      }
+      // fallback para valor raw
+      return prevVal + JSON.stringify(currVal)
     }, '')
 
     const imgOptions = fromPairs(optionsArray[2])
@@ -113,7 +120,7 @@ async function action (elt, format, meta) {
 }
 
 function toFigureCaption (caption) {
-  return `\\caption{${caption}\\label{fig:${paramCase(caption)}}}`
+  return `\\caption{${caption}\\label{fig:${paramCase(caption.replace('"', ''))}}}`
 }
 
 function toFigureFullPage (filepath, caption, { clipb, clipt }) {
@@ -152,7 +159,7 @@ function toFigure (filepath, caption, opt) {
 \\end{figure}`)
 }
 
-async function metaArray2Val (a) {
+function metaArray2Val (a) {
   return a.reduce(function (prevVal, currVal, idx) {
     if (currVal.t === 'Space') return prevVal + ' '
     if (currVal.t === 'Str') return prevVal + currVal.c
