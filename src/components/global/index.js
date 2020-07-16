@@ -9,6 +9,7 @@ import Ross from './Ross.vue'
 import Rachel from './Rachel.vue'
 import Phoebe from './Phoebe.vue'
 import Joey from './Joey.vue'
+import Jack from './Jack.vue'
 import Janice from './Janice.vue'
 import David from './David.vue'
 import Max from './Max.vue'
@@ -37,18 +38,20 @@ export default {
     Vue.component('musica', Musica)
     Vue.component('letra', Letra)
     Vue.component('cod-episodio', CodEpisodio)
-    Vue.component('chandler', Chandler)
-    Vue.component('monica', Monica)
-    Vue.component('ross', Ross)
-    Vue.component('rachel', Rachel)
-    Vue.component('phoebe', Phoebe)
-    Vue.component('joey', Joey)
-    Vue.component('janice', Janice)
-    Vue.component('david', David)
-    Vue.component('max', Max)
-    Vue.component('carol-one', CarolOne)
+
     Vue.component('carol', Carol)
+    Vue.component('carol-one', CarolOne)
+    Vue.component('chandler', Chandler)
+    Vue.component('david', David)
     Vue.component('gloria', Gloria)
+    Vue.component('jack', Jack)
+    Vue.component('janice', Janice)
+    Vue.component('joey', Joey)
+    Vue.component('max', Max)
+    Vue.component('monica', Monica)
+    Vue.component('phoebe', Phoebe)
+    Vue.component('rachel', Rachel)
+    Vue.component('ross', Ross)
 
     // icons
     Vue.component('chevron-left-icon', ChevronLeftIcon)
