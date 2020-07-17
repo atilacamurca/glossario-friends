@@ -45,6 +45,10 @@ module.exports = function parseRawInline (elt) {
     return criarDialogo('Joey', 'joey', value)
   }
 
+  if (value.startsWith('<janice')) {
+    return criarDialogo('Janice', 'janice', value)
+  }
+
   if (/^<\/(carol|chandler|david|gloria|janice|joey|max|monica|obsession|phoebe|rachel|ross)/.test(value)) {
     return {
       type: 'dialogo',
