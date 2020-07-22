@@ -4,6 +4,7 @@ import Musica from './Musica.vue'
 import Letra from './Letra.vue'
 import CodEpisodio from './CodEpisodio.vue'
 import Chandler from './Chandler.vue'
+import ObsessionGirl from './ObsessionGirl.vue'
 import Monica from './Monica.vue'
 import Ross from './Ross.vue'
 import Rachel from './Rachel.vue'
@@ -49,6 +50,7 @@ export default {
     Vue.component('joey', Joey)
     Vue.component('max', Max)
     Vue.component('monica', Monica)
+    Vue.component('obsession-girl', ObsessionGirl)
     Vue.component('phoebe', Phoebe)
     Vue.component('rachel', Rachel)
     Vue.component('ross', Ross)
