@@ -57,5 +57,38 @@
       "\ttraducao=\"- ${2}\"",
       "/>"
     ]
+  },
+  "Monica": {
+    "scope": "markdown",
+    "prefix": "monica",
+    "description": "Diálogo para Monica",
+    "body": [
+      "<monica",
+      "\toriginal=\"- ${1}\"",
+      "\ttraducao=\"- ${2}\"",
+      "/>"
+    ]
+  },
+  "Phoebe": {
+    "scope": "markdown",
+    "prefix": "phoebe",
+    "description": "Diálogo para Phoebe",
+    "body": [
+      "<phoebe",
+      "\toriginal=\"- ${1}\"",
+      "\ttraducao=\"- ${2}\"",
+      "/>"
+    ]
+  },
+  "Joey": {
+    "scope": "markdown",
+    "prefix": "joey",
+    "description": "Diálogo para Joey",
+    "body": [
+      "<joey",
+      "\toriginal=\"- ${1}\"",
+      "\ttraducao=\"- ${2}\"",
+      "/>"
+    ]
   }
 }
