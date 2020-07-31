@@ -8,6 +8,7 @@ import Monica from './Monica.vue'
 import Ross from './Ross.vue'
 import Rachel from './Rachel.vue'
 import Phoebe from './Phoebe.vue'
+import Iris from './Iris.vue'
 import Joey from './Joey.vue'
 import Jack from './Jack.vue'
 import Janice from './Janice.vue'
@@ -44,6 +45,7 @@ export default {
     Vue.component('chandler', Chandler)
     Vue.component('david', David)
     Vue.component('gloria', Gloria)
+    Vue.component('iris', Iris)
     Vue.component('jack', Jack)
     Vue.component('janice', Janice)
     Vue.component('joey', Joey)
