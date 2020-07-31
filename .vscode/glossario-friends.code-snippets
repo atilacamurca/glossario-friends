@@ -90,5 +90,13 @@
       "\ttraducao=\"- ${2}\"",
       "/>"
     ]
+  },
+  "Referências": {
+    "scope": "markdown",
+    "prefix": "refs",
+    "description": "Subseção de Referências",
+    "body": [
+      "### Referências\n\n- ${1}"
+    ]
   }
 }
