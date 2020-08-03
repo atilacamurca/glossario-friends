@@ -96,7 +96,7 @@
     "prefix": "refs",
     "description": "Subseção de Referências",
     "body": [
-      "### Referências\n\n- ${1}"
+      "### Referências\n\n- [${1}](${2})"
     ]
   }
 }
