@@ -58,6 +58,13 @@ module.exports = {
       }
     },
     {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: `temporadas/**/highlights.json`,
+        typeName: 'HighlightsTemplate',
+      }
+    },
+    {
       use: 'gridsome-plugin-rss',
       options: {
         contentTypeName: 'Episodio',
