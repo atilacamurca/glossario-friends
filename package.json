@@ -9,6 +9,7 @@
   "dependencies": {
     "@gridsome/plugin-sitemap": "^0.3.0",
     "@gridsome/source-filesystem": "^0.6.2",
+    "@gridsome/transformer-json": "^0.2.1",
     "@gridsome/transformer-remark": "^0.6.0",
     "@gridsome/vue-remark": "^0.2.1",
     "axios": "^0.19.2",
@@ -18,7 +19,8 @@
     "remark-attr": "^0.11.1",
     "vue-feather-icons": "^5.0.0",
     "vue-fuse": "^2.2.1",
-    "vue-scrollto": "^2.18.1"
+    "vue-scrollto": "^2.18.1",
+    "vue-slick-carousel": "^1.0.6"
   },
   "devDependencies": {
     "dayjs": "^1.8.29",

@@ -33,9 +33,9 @@ module.exports = {
             'g-image',
             'g-image--lazy',
             'g-image--loaded',
-            'active',
+            'active'
           ],
-          whitelistPatterns: [/^bg-/],
+          whitelistPatterns: [/^bg-/, /^slick-/],
           defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
         },
       }
@@ -55,6 +55,13 @@ module.exports = {
           'remark-fix-guillemets',
           'remark-attr'
         ]
+      }
+    },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: `temporadas/**/highlights.json`,
+        typeName: 'HighlightsTemplate',
       }
     },
     {

@@ -1,0 +1,25 @@
+{
+  "highlights": [
+    {
+      "image": {
+        "src": "./img/2/kitchen-with-dinah.png",
+        "alt": "kitchen-with-dinah"
+      },
+      "url": "/temporada/1/episodio/2/#in-the-kitchen-with-dinah",
+      "title": "In the kitchen with... Dinah?",
+      "episode": "S01E02",
+      "episodeName": "Aquele com o Ultrassom no Final",
+      "context": "Chandler faz essa referência enquanto Rachel está em busca de seu anel de noivado"
+    },
+    {
+      "image": {
+        "src": "./img/9/blossom.png"
+      },
+      "url": "/temporada/1/episodio/9/#a-very-special-blossom",
+      "title":"A very special Blossom",
+      "episode": "S01E09",
+      "episodeName": "Aquele em que o Underdog Escapa",
+      "context": "Chandler faz essa referência quando Joey avisa que não vai ver a família no Dia de Ação de Graças"
+    }
+  ]
+}
