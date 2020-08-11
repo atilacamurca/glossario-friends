@@ -86,17 +86,7 @@
         <span class="flex items-start flex-col leading-none">
           Ver temporadas
         </span>
-        <svg
-          fill="none"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          class="w-4 h-4 ml-4"
-          viewBox="0 0 24 24"
-        >
-          <path d="M5 12h14M12 5l7 7-7 7"></path>
-        </svg>
+        <arrow-right-icon></arrow-right-icon>
       </g-link>
     </div>
   </Layout>
@@ -112,7 +102,7 @@ query {
 
 <page-query>
 query {
-  allHighlights: allHighlightsTemplate {
+  allHighlights: allHighlightsTemplate(sortBy: "episode", order: ASC) {
     edges {
       node {
         id
@@ -135,11 +125,9 @@ query {
 
 <script>
 import VueSlickCarousel from 'vue-slick-carousel'
-import 'vue-slick-carousel/dist/vue-slick-carousel.css'
-// optional style for arrows & dots
-import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 import BackgroundDots from '~/components/BackgroundDots'
 import ExternalLinkIcon from '~/components/ExternalLinkIcon'
+import { ArrowRightIcon } from 'vue-feather-icons'
 
 export default {
   metaInfo: {
@@ -148,7 +136,8 @@ export default {
   components: {
     BackgroundDots,
     ExternalLinkIcon,
-    VueSlickCarousel
+    VueSlickCarousel,
+    ArrowRightIcon
   },
   data () {
     return {
@@ -167,3 +156,5 @@ export default {
 }
 </script>
 
+<style src="vue-slick-carousel/dist/vue-slick-carousel.css"></style>
+<style src="vue-slick-carousel/dist/vue-slick-carousel-theme.css"></style>

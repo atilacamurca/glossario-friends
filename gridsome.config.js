@@ -33,9 +33,9 @@ module.exports = {
             'g-image',
             'g-image--lazy',
             'g-image--loaded',
-            'active',
+            'active'
           ],
-          whitelistPatterns: [/^bg-/],
+          whitelistPatterns: [/^bg-/, /^slick-/],
           defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
         },
       }
