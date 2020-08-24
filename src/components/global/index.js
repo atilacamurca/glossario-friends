@@ -4,6 +4,7 @@ import Musica from './Musica.vue'
 import Letra from './Letra.vue'
 import CodEpisodio from './CodEpisodio.vue'
 import Chandler from './Chandler.vue'
+import Heckles from './Heckles.vue'
 import ObsessionGirl from './ObsessionGirl.vue'
 import Monica from './Monica.vue'
 import Ross from './Ross.vue'
@@ -46,6 +47,7 @@ export default {
     Vue.component('chandler', Chandler)
     Vue.component('david', David)
     Vue.component('gloria', Gloria)
+    Vue.component('heckles', Heckles)
     Vue.component('iris', Iris)
     Vue.component('jack', Jack)
     Vue.component('janice', Janice)
