@@ -7,6 +7,7 @@ import Chandler from './Chandler.vue'
 import Heckles from './Heckles.vue'
 import ObsessionGirl from './ObsessionGirl.vue'
 import Monica from './Monica.vue'
+import FakeMonica from './FakeMonica.vue'
 import Ross from './Ross.vue'
 import Rachel from './Rachel.vue'
 import Phoebe from './Phoebe.vue'
@@ -46,6 +47,7 @@ export default {
     Vue.component('carol-one', CarolOne)
     Vue.component('chandler', Chandler)
     Vue.component('david', David)
+    Vue.component('fake-monica', FakeMonica)
     Vue.component('gloria', Gloria)
     Vue.component('heckles', Heckles)
     Vue.component('iris', Iris)
