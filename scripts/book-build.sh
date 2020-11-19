@@ -21,6 +21,8 @@ do
   --filter ./scripts/pandoc-filter/bin.js
 done
 
+# exit 0
+
 cd book
 pdflatex -shell-escape -interaction=nonstopmode main.tex
 

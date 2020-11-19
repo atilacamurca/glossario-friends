@@ -545,7 +545,17 @@ addtohook={%
     \endorigfigure
 }
 \usepackage{caption}
+\captionsetup[figure]{font=footnotesize,labelfont=footnotesize}
 \renewcommand{\figurename}{Figura}
+
+\usepackage{parskip}
+\newcommand{\saveparinfos}{%
+\edef\myindent{\the\parindent}%
+\edef\myparskip{\the\parskip}}
+
+\newcommand{\useparinfo}{%
+\setlength{\parindent}{15pt}%
+\setlength{\parskip}{\myparskip}}
 
 \usepackage{chngpage}
 \usepackage{calc}
