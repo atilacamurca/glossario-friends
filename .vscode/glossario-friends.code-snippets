@@ -98,5 +98,29 @@
     "body": [
       "### Referências\n\n- [${1}](${2})"
     ]
+  },
+  "Início coluna 1": {
+    "scope": "markdown",
+    "prefix": "col-1",
+    "description": "Início coluna 1",
+    "body": [
+      "<!-- {\"latex\":[{\"begin\":{\"tag\":\"col-1\",\"width\":0.5}}]} -->"
+    ]
+  },
+  "Início coluna 2": {
+    "scope": "markdown",
+    "prefix": "col-2",
+    "description": "Início coluna 2",
+    "body": [
+      "<!--{\"latex\":[{\"end\":{\"tag\":\"col-1\"}},{\"begin\":{\"tag\":\"col-2\",\"width\":0.5}}]}-->"
+    ]
+  },
+  "Fim coluna 2": {
+    "scope": "markdown",
+    "prefix": "end-col-2",
+    "description": "Fim coluna 2",
+    "body": [
+      "<!--{\"latex\":[{\"end\":{\"tag\":\"col-2\"}}]}-->"
+    ]
   }
 }
