@@ -1,9 +1,10 @@
-var pandoc = require('pandoc-filter-promisified')
+var pandoc = require('pandoc-filter')
 const fromPairs = require('lodash.frompairs')
 const { paramCase } = require('param-case')
 const padStart = require('lodash.padstart')
 const parseRawInline = require('./parse-raw-inline')
-const { Str, RawInline } = pandoc
+const { Str, RawInline, Plain, RawBlock } = pandoc
+const debug = require('debug')('filter')
 
 const builder = {
   cena: '',
@@ -116,6 +117,38 @@ async function action (elt, format, meta) {
     }
 
     return toFigureFullPage(filepath, caption, imgOptions)
+  }
+
+  if (elt.t === 'RawBlock') {
+    const [type, value] = elt.c
+    if (type === 'html' && value.indexOf('<!--') !== -1) {
+      const options = JSON.parse(value.replace('<!--', '').replace('-->', '').trim())
+      let latex = ''
+      if (!options.latex) {
+        return []
+      }
+
+      for (let i in options.latex) {
+        debug(options.latex[i])
+        const opt = options.latex[i]
+        if (opt.begin) {
+          if (opt.begin.tag === 'col-1') {
+            latex += `\\saveparinfos
+\\noindent
+\\begin{minipage}[c]{${opt.begin.width}\\textwidth}\\useparinfo\n`
+          } else if (opt.begin.tag === 'col-2') {
+            latex += `\\begin{minipage}[c]{${opt.begin.width}\\textwidth}\n`
+          }
+        } else if (opt.end) {
+          if (opt.end.tag === 'col-1') {
+            latex += `\\end{minipage}\\hfill\n`
+          } else if (opt.end.tag === 'col-2') {
+            latex += `\\end{minipage}\n`
+          }
+        }
+      }
+      return RawBlock('latex', latex)
+    }
   }
 }
 

@@ -23,7 +23,9 @@
     "vue-slick-carousel": "^1.0.6"
   },
   "devDependencies": {
+    "cross-env": "^7.0.2",
     "dayjs": "^1.8.29",
+    "debug": "^4.3.1",
     "dotenv": "^8.2.0",
     "gridsome-plugin-pwa": "0.0.18",
     "gridsome-plugin-tailwindcss": "^2.2.48",
@@ -36,7 +38,7 @@
     "moviedb-promise": "^3.0.3",
     "netlify-plugin-gridsome-cache": "^1.0.1",
     "netlify-plugin-submit-sitemap": "^0.1.4",
-    "pandoc-filter-promisified": "^0.1.0",
+    "pandoc-filter": "^2.0.2",
     "param-case": "^3.0.3",
     "reading-time": "^1.2.0",
     "recursive-readdir": "^2.2.2",
