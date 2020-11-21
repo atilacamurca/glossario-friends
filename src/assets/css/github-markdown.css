@@ -965,4 +965,8 @@
   .markdown-body .footnote-backref {
     padding-left: 10px!important;
   }
+
+  .markdown-body .footnote-ref {
+    padding-right: 6px!important;
+  }
   /* purgecss end ignore */
