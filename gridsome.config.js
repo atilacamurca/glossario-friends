@@ -48,13 +48,19 @@ module.exports = {
         route: '/temporada/:temporada/episodio/:episodio',
         template: './src/templates/Episodio.vue',
         plugins: [
+          'remark-numbered-footnotes',
           'remark-slug',
           'remark-autolink-headings',
           'remark-external-links',
           'remark-squeeze-paragraphs',
           'remark-fix-guillemets',
           'remark-attr'
-        ]
+        ],
+        remark: {
+          config: {
+            footnotes: true
+          }
+        }
       }
     },
     {

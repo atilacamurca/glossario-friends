@@ -962,4 +962,7 @@
     padding-left: 128px!important;
   }
 
+  .markdown-body .footnote-backref {
+    padding-left: 10px!important;
+  }
   /* purgecss end ignore */

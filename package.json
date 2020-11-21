@@ -17,6 +17,7 @@
     "gridsome-plugin-remark-shiki": "^0.3.1",
     "gridsome-plugin-rss": "^1.2.0",
     "remark-attr": "^0.11.1",
+    "remark-numbered-footnotes": "^2.0.0",
     "vue-feather-icons": "^5.0.0",
     "vue-fuse": "^2.2.1",
     "vue-scrollto": "^2.18.1",
