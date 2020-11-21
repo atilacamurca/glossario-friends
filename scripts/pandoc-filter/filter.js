@@ -161,7 +161,7 @@ function toFigureFullPage (filepath, caption, { clipb, clipt }) {
   \\begin{adjustwidth}{-\\oddsidemargin-1in}{-\\rightmargin}
     \\centering
     \\includegraphics[trim={0 ${clipb} 0 ${clipt}}, clip, width=\\paperwidth]{${filepath}}
-    ${toFigureCaption(caption)}
+    % ${toFigureCaption(caption)}
   \\end{adjustwidth}
 \\end{figure}`)
 }
