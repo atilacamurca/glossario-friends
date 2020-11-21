@@ -173,13 +173,13 @@ ${value}
 }
 
 function dialogo (imagem, personagem, original, traducao) {
-  return `\\begin{minipage}[c]{0.14\\linewidth}
+  return `\\begin{minipage}[c]{0.16\\linewidth}
   \\raisebox{\\dimexpr-\\height+\\ht\\strutbox\\relax}{
-    \\includegraphics[width=1.5cm]{${imagem}}
+    \\centering \\includegraphics[width=1.4cm]{${imagem}}
   }
    & \\centering \\scriptsize{${personagem}}
 \\end{minipage}
-\\hspace{.1mm}
+\\hfill
 \\begin{minipage}[c]{0.8\\linewidth}
   \\textbf{${original}}\\\\
   ${traducao}
