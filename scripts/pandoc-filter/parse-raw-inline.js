@@ -41,6 +41,10 @@ module.exports = function parseRawInline (elt) {
     return criarDialogo('Carol', 'carol-1', value)
   }
 
+  if (value.startsWith('<carol')) {
+    return criarDialogo('Carol', 'carol', value)
+  }
+
   if (value.startsWith('<joey')) {
     return criarDialogo('Joey', 'joey', value)
   }
@@ -51,6 +55,18 @@ module.exports = function parseRawInline (elt) {
 
   if (value.startsWith('<obsession-girl')) {
     return criarDialogo('Girl', 'obsession-girl', value)
+  }
+
+  if (value.startsWith('<david')) {
+    return criarDialogo('David', 'david', value)
+  }
+
+  if (value.startsWith('<gloria')) {
+    return criarDialogo('Gloria', 'gloria', value)
+  }
+
+  if (value.startsWith('<max')) {
+    return criarDialogo('Max', 'max', value)
   }
 
   if (/^<\/(carol|chandler|david|gloria|janice|joey|max|monica|obsession|phoebe|rachel|ross)/.test(value)) {
@@ -157,13 +173,13 @@ ${value}
 }
 
 function dialogo (imagem, personagem, original, traducao) {
-  return `\\begin{minipage}[c]{0.14\\linewidth}
+  return `\\begin{minipage}[c]{0.16\\linewidth}
   \\raisebox{\\dimexpr-\\height+\\ht\\strutbox\\relax}{
-    \\includegraphics[width=1.5cm]{${imagem}}
+    \\centering \\includegraphics[width=1.4cm]{${imagem}}
   }
    & \\centering \\scriptsize{${personagem}}
 \\end{minipage}
-\\hspace{.1mm}
+\\hfill
 \\begin{minipage}[c]{0.8\\linewidth}
   \\textbf{${original}}\\\\
   ${traducao}
