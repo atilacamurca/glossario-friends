@@ -65,11 +65,19 @@ module.exports = function parseRawInline (elt) {
     return criarDialogo('Gloria', 'gloria', value)
   }
 
+  if (value.startsWith('<iris')) {
+    return criarDialogo('Iris', 'iris', value)
+  }
+
+  if (value.startsWith('<jack')) {
+    return criarDialogo('Jack', 'jack', value)
+  }
+
   if (value.startsWith('<max')) {
     return criarDialogo('Max', 'max', value)
   }
 
-  if (/^<\/(carol|chandler|david|gloria|janice|joey|max|monica|obsession|phoebe|rachel|ross)/.test(value)) {
+  if (/^<\/(carol|chandler|david|gloria|iris|jack|janice|joey|max|monica|obsession|phoebe|rachel|ross)/.test(value)) {
     return {
       type: 'dialogo',
       content: '',
