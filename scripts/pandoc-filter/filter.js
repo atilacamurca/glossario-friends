@@ -194,8 +194,14 @@ function toFigure (filepath, caption, opt) {
 
 function metaArray2Val (a) {
   return a.reduce(function (prevVal, currVal, idx) {
+    // debug(currVal.t)
     if (currVal.t === 'Space') return prevVal + ' '
     if (currVal.t === 'Str') return prevVal + currVal.c
+    if (currVal.c[0].t == 'DoubleQuote') {
+      return prevVal + '``' + metaArray2Val(currVal.c[1]) + "''"
+    } else if (currVal.c[0].t == 'SingleQuote') {
+      return prevVal + '`' + metaArray2Val(currVal.c[1]) + "'"
+    }
   }, '')
 }
 

@@ -58,7 +58,7 @@ const temporadas = {
 for (let key in temporadas) {
   if (key !== '1') continue // hack
 
-  const size =  18 // temporadas[key].total;
+  const size =  21 // temporadas[key].total;
   let inputs = []
   for (let i = 1; i <= size; i++) {
     const ep = readEpisode(key, i)
