@@ -3,6 +3,7 @@ const fromPairs = require('lodash.frompairs')
 const { paramCase } = require('param-case')
 const padStart = require('lodash.padstart')
 const parseRawInline = require('./parse-raw-inline')
+const { normalizeText } = require('./utils')
 const { Str, RawInline, Plain, RawBlock } = pandoc
 const debug = require('debug')('filter')
 
@@ -90,7 +91,7 @@ async function action (elt, format, meta) {
       // link interno, deixar como estar por enquanto
       return RawInline('latex', `\\textbf{\\textcolor{primarycolor}{${title}}}`)
     }
-    return RawInline('latex', `\\sloppy ${title}. \\url{${url}}`)
+    return RawInline('latex', `\\sloppy ${normalizeText(title)}. \\url{${url}}`)
   }
 
   if (elt.t === 'Image') {

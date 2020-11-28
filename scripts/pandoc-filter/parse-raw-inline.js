@@ -1,4 +1,6 @@
 
+const { normalizeText } = require('./utils')
+
 module.exports = function parseRawInline (elt) {
   const [type, value] = elt.c
   if (value.startsWith('<cena')) {
@@ -197,14 +199,8 @@ function dialogo (imagem, personagem, original, traducao) {
 \\end{minipage}
 \\hfill
 \\begin{minipage}[c]{0.8\\linewidth}
-  \\textbf{${normalizeDialog(original)}}\\\\
-  ${normalizeDialog(traducao)}
+  \\textbf{${normalizeText(original)}}\\\\
+  ${normalizeText(traducao)}
 \\end{minipage}
 `
-}
-
-function normalizeDialog(text) {
-  return text
-    .replace(/\&quot;/g, '"')
-    .replace(/\&/g, '\\&')
 }
