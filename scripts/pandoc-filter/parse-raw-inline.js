@@ -1,10 +1,12 @@
 
+const { normalizeText } = require('./utils')
+
 module.exports = function parseRawInline (elt) {
   const [type, value] = elt.c
-  if (value === '<cena>') {
+  if (value.startsWith('<cena')) {
     return {
       type: 'cena',
-      content: beginCena(),
+      content: beginCena({ breakable: !value.includes('no-breakable') }),
       hasNext: true
     }
   }
@@ -61,15 +63,31 @@ module.exports = function parseRawInline (elt) {
     return criarDialogo('David', 'david', value)
   }
 
+  if (value.startsWith('<fake-monica')) {
+    return criarDialogo('M. Falsa', 'fake-monica', value)
+  }
+
   if (value.startsWith('<gloria')) {
     return criarDialogo('Gloria', 'gloria', value)
+  }
+
+  if (value.startsWith('<heckles')) {
+    return criarDialogo('Heckles', 'heckles', value)
+  }
+
+  if (value.startsWith('<iris')) {
+    return criarDialogo('Iris', 'iris', value)
+  }
+
+  if (value.startsWith('<jack')) {
+    return criarDialogo('Jack', 'jack', value)
   }
 
   if (value.startsWith('<max')) {
     return criarDialogo('Max', 'max', value)
   }
 
-  if (/^<\/(carol|chandler|david|gloria|janice|joey|max|monica|obsession|phoebe|rachel|ross)/.test(value)) {
+  if (/^<\/(carol|chandler|david|fake|gloria|heckles|iris|jack|janice|joey|max|monica|obsession|phoebe|rachel|ross)/.test(value)) {
     return {
       type: 'dialogo',
       content: '',
@@ -116,10 +134,10 @@ module.exports = function parseRawInline (elt) {
   }
 }
 
-function beginCena () {
+function beginCena ({ breakable = true }) {
   return `\\begin{tcolorbox}[enhanced,center upper,
     drop fuzzy shadow southeast, boxrule=0.3pt,
-    lower separated=false,
+    lower separated=false,${breakable ? ' breakable,' : ''}
     colframe=black!30!dialogoBorder,colback=white]
 `
 }
@@ -129,7 +147,7 @@ function beginMusica () {
 \\begin{tcolorbox}[enhanced,
     drop fuzzy shadow southeast, boxrule=0.3pt,
     lower separated=false, sidebyside, sidebyside align=top,
-    halign=flush right, halign lower=left,
+    halign=flush right, halign lower=left, breakable,
     colframe=black!30!dialogoBorder,colback=musicaBg]
 `
 }
@@ -181,8 +199,8 @@ function dialogo (imagem, personagem, original, traducao) {
 \\end{minipage}
 \\hfill
 \\begin{minipage}[c]{0.8\\linewidth}
-  \\textbf{${original}}\\\\
-  ${traducao}
+  \\textbf{${normalizeText(original)}}\\\\
+  ${normalizeText(traducao)}
 \\end{minipage}
 `
 }

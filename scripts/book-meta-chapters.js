@@ -58,7 +58,7 @@ const temporadas = {
 for (let key in temporadas) {
   if (key !== '1') continue // hack
 
-  const size =  13 // temporadas[key].total;
+  const size =  21 // temporadas[key].total;
   let inputs = []
   for (let i = 1; i <= size; i++) {
     const ep = readEpisode(key, i)
@@ -72,15 +72,19 @@ ${inputs.join('\n')}
 }
 
 function generateInputEpisodio(ep, date) {
-  return `\\chapter{${ep.title}}
+  let text = `\\chapter{${ep.title}}
 
 \\textbf{RESUMO $\\looparrowright$} ${safeLatex(ep.summary)}
 
 \\begin{flushright}
-\\textcolor{gray600}{Exibido em ${date.format('MMMM, DD YYYY')}}
-\\end{flushright}
-\\input{S${padTwo(ep.temporada)}/S${padTwo(ep.temporada)}E${padTwo(ep.episodio)}}
-`
+\\textcolor{gray600}{Exibido em ${date.format('DD [de] MMMM [de] YYYY')}}
+\\end{flushright}`
+  if (ep.noRefs) {
+    text += '\nNão foram encontradas referências relevantes neste episódio.\n'
+  } else {
+    text += `\n\\input{S${padTwo(ep.temporada)}/S${padTwo(ep.temporada)}E${padTwo(ep.episodio)}}\n`
+  }
+  return text
 }
 
 function readEpisode(temporada, episodio) {

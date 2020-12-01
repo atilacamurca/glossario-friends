@@ -3,6 +3,7 @@ const fromPairs = require('lodash.frompairs')
 const { paramCase } = require('param-case')
 const padStart = require('lodash.padstart')
 const parseRawInline = require('./parse-raw-inline')
+const { normalizeText } = require('./utils')
 const { Str, RawInline, Plain, RawBlock } = pandoc
 const debug = require('debug')('filter')
 
@@ -88,9 +89,9 @@ async function action (elt, format, meta) {
     const title = metaArray2Val(inline)
     if (url.includes('/temporada')) {
       // link interno, deixar como estar por enquanto
-      return RawInline('latex', `\\textbf{\\textcolor{primarycolor}{${title}}}`)
+      return RawInline('latex', `\\textbf{\\textcolor{primarycolor}{${normalizeText(title)}}}`)
     }
-    return RawInline('latex', `\\sloppy ${title}. \\url{${url}}`)
+    return RawInline('latex', `\\sloppy ${normalizeText(title)}. \\url{${normalizeText(url)}}`)
   }
 
   if (elt.t === 'Image') {
@@ -194,8 +195,14 @@ function toFigure (filepath, caption, opt) {
 
 function metaArray2Val (a) {
   return a.reduce(function (prevVal, currVal, idx) {
+    // debug(currVal.t)
     if (currVal.t === 'Space') return prevVal + ' '
     if (currVal.t === 'Str') return prevVal + currVal.c
+    if (currVal.c[0].t == 'DoubleQuote') {
+      return prevVal + '``' + metaArray2Val(currVal.c[1]) + "''"
+    } else if (currVal.c[0].t == 'SingleQuote') {
+      return prevVal + '`' + metaArray2Val(currVal.c[1]) + "'"
+    }
   }, '')
 }
 
