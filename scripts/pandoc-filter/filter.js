@@ -89,9 +89,9 @@ async function action (elt, format, meta) {
     const title = metaArray2Val(inline)
     if (url.includes('/temporada')) {
       // link interno, deixar como estar por enquanto
-      return RawInline('latex', `\\textbf{\\textcolor{primarycolor}{${title}}}`)
+      return RawInline('latex', `\\textbf{\\textcolor{primarycolor}{${normalizeText(title)}}}`)
     }
-    return RawInline('latex', `\\sloppy ${normalizeText(title)}. \\url{${url}}`)
+    return RawInline('latex', `\\sloppy ${normalizeText(title)}. \\url{${normalizeText(url)}}`)
   }
 
   if (elt.t === 'Image') {
