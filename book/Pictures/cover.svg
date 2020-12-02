@@ -26,10 +26,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.65281707"
-     inkscape:cx="312.39712"
-     inkscape:cy="560.56509"
+     inkscape:cx="284.79611"
+     inkscape:cy="544.43879"
      inkscape:document-units="px"
-     inkscape:current-layer="layer2"
+     inkscape:current-layer="layer3"
      showgrid="false"
      inkscape:window-width="1600"
      inkscape:window-height="872"
@@ -146,7 +146,8 @@
   <g
      inkscape:groupmode="layer"
      id="layer2"
-     inkscape:label="background-items">
+     inkscape:label="background-items"
+     sodipodi:insensitive="true">
     <g
        id="g4232"
        transform="matrix(0.69990767,0,0,0.69990767,521.80578,753.33023)"
@@ -234,7 +235,7 @@
     </g>
     <g
        id="g4668"
-       transform="matrix(0.45843523,0.10346937,-0.10346937,0.45843523,168.75337,807.30479)"
+       transform="matrix(0.45843523,0.10346937,-0.10346937,0.45843523,118.75337,787.30479)"
        style="fill:#ffffff">
       <path
          id="path4654"
@@ -379,5 +380,75 @@
          id="g4485"
          style="fill:#ffffff" />
     </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="text">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:39.21667862px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#1e293b;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       x="371.72824"
+       y="317.09122"
+       id="text4202"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4204"
+         x="371.72824"
+         y="317.09122"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:68.62918854px;line-height:125%;font-family:'Poetsen One';-inkscape-font-specification:'Poetsen One, Normal';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#1e293b;fill-opacity:1;">Aquele com o</tspan><tspan
+         sodipodi:role="line"
+         x="371.72824"
+         y="402.87772"
+         id="tspan4206"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:68.62918854px;line-height:125%;font-family:'Poetsen One';-inkscape-font-specification:'Poetsen One, Normal';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#1e293b;fill-opacity:1;">Glossário de Friends</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:18.73412132px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#1e293b;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       x="371.43893"
+       y="452.78671"
+       id="text4202-8"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="371.43893"
+         y="452.78671"
+         id="tspan4206-9"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32.78442001px;line-height:125%;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, Normal';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#1e293b;fill-opacity:1;">Entenda as referências da série</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:22.60399437px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#1e293b;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       x="372.31424"
+       y="544.8125"
+       id="text4202-1"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="372.31424"
+         y="544.8125"
+         id="tspan4206-0"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:39.55698776px;line-height:125%;font-family:'Poetsen One';-inkscape-font-specification:'Poetsen One, Normal';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#1e293b;fill-opacity:1;">Átila &amp; Sinara</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:49.52896881px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#1e293b;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="371.20215"
+       y="623.56091"
+       id="text4202-1-1"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="371.20215"
+         y="623.56091"
+         id="tspan4206-0-7"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:86.6756897px;line-height:125%;font-family:'Poetsen One';-inkscape-font-specification:'Poetsen One, Normal';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#1e293b;fill-opacity:1">Camurça</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:19.43689156px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#f9f9f9;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="372.36639"
+       y="1018.5335"
+       id="text4202-1-9"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="372.36639"
+         y="1018.5335"
+         id="tspan4206-0-1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:34.0145607px;line-height:125%;font-family:'Poetsen One';-inkscape-font-specification:'Poetsen One, Normal';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#f9f9f9">Temporada 1</tspan></text>
   </g>
 </svg>
