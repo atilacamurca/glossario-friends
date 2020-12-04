@@ -3,6 +3,7 @@ import Dialogo from './Dialogo.vue'
 import Musica from './Musica.vue'
 import Letra from './Letra.vue'
 import CodEpisodio from './CodEpisodio.vue'
+import Carl from './Carl.vue'
 import Chandler from './Chandler.vue'
 import Heckles from './Heckles.vue'
 import ObsessionGirl from './ObsessionGirl.vue'
@@ -43,6 +44,7 @@ export default {
     Vue.component('letra', Letra)
     Vue.component('cod-episodio', CodEpisodio)
 
+    Vue.component('carl', Carl)
     Vue.component('carol', Carol)
     Vue.component('carol-one', CarolOne)
     Vue.component('chandler', Chandler)
