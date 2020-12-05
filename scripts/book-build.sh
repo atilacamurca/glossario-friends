@@ -25,7 +25,10 @@ done
 
 cd book
 pandoc -f markdown -o welcome.tex welcome.md
-pdflatex -shell-escape -interaction=nonstopmode main.tex
+pdflatex -shell-escape \
+  -interaction=nonstopmode \
+  -jobname=glossario-friends-temporada-1 \
+  main.tex
 
 cd -
 
