@@ -39,6 +39,10 @@ module.exports = function parseRawInline (elt) {
     return criarDialogo('Monica', 'monica', value)
   }
 
+  if (value.startsWith('<carl')) {
+    return criarDialogo('Carl', 'carl', value)
+  }
+
   if (value.startsWith('<carol-one')) {
     return criarDialogo('Carol', 'carol-1', value)
   }
@@ -87,7 +91,7 @@ module.exports = function parseRawInline (elt) {
     return criarDialogo('Max', 'max', value)
   }
 
-  if (/^<\/(carol|chandler|david|fake|gloria|heckles|iris|jack|janice|joey|max|monica|obsession|phoebe|rachel|ross)/.test(value)) {
+  if (/^<\/(carl|carol|chandler|david|fake|gloria|heckles|iris|jack|janice|joey|max|monica|obsession|phoebe|rachel|ross)/.test(value)) {
     return {
       type: 'dialogo',
       content: '',

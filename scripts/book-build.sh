@@ -10,7 +10,7 @@ set -o pipefail
 
 # season 1
 mkdir -p ./book/S01
-for i in $(seq -f "%02g" 1 21)
+for i in $(seq -f "%02g" 1 24)
 do
   echo "Gerando tex do episódio S01E${i} ..."
   pandoc \
@@ -24,6 +24,7 @@ done
 # exit 0
 
 cd book
+pandoc -f markdown -o welcome.tex welcome.md
 pdflatex -shell-escape -interaction=nonstopmode main.tex
 
 cd -

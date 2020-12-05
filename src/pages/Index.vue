@@ -38,8 +38,8 @@
       </p>
       <p class="text-lg sm:text-xl mb-4">
         Se &#8212; enquanto assistia <em>Friends</em>
-        repetidas vezes &#8212; você não entendeu uma referência, viu ou ouviu algo que não entendeu,
-        esse é o site para você.
+        repetidas vezes &#8212; você não entendeu uma referência, viu ou ouviu
+        algo que não compreendeu, esse é o site para você.
       </p>
 
       <p class="text-lg sm:text-xl mb-4">
