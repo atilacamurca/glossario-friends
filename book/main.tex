@@ -60,11 +60,11 @@
 \thispagestyle{empty} % Suppress headers and footers on the title page
 \begin{tikzpicture}[remember picture,overlay]
 \node[inner sep=0pt] (background) at (current page.center) {\includegraphics[width=\paperwidth]{cover.pdf}};
-\draw (current page.center) node [text opacity=1,inner sep=1cm]{\Huge\centering\bfseries\sffamily\parbox[c][][t]{\paperwidth}{\centering Aquele com o glossário de Friends\\[15pt] % Book title
-{\Large Entenda as referências da série}\\[20pt] % Subtitle
-{\Large Átila \& Sinara}\\[10pt] % Author name
-{\Huge CAMURÇA}
-}};
+% \draw (current page.center) node [text opacity=1,inner sep=1cm]{\Huge\centering\bfseries\sffamily\parbox[c][][t]{\paperwidth}{\centering Aquele com o glossário de Friends\\[15pt] % Book title
+% {\Large Entenda as referências da série}\\[20pt] % Subtitle
+% {\Large Átila \& Sinara}\\[10pt] % Author name
+% {\Huge CAMURÇA}
+% }};
 \end{tikzpicture}
 \vfill
 \endgroup
@@ -77,15 +77,21 @@
 ~\vfill
 \thispagestyle{empty}
 
-\noindent Copyright \copyright\ 2020 Átila \& Sinara Camurça\\ % Copyright notice
+\noindent Copyright \copyright\ 2020 Camurça, Átila \& Sinara\\ % Copyright notice
 
 \noindent \textsc{Publicação Independente}\\ % Publisher
 
 \noindent \url{https://glossario-friends.netlify.app/}\\ % URL
 
-\noindent Licensed under the Creative Commons Attribution-NonCommercial 3.0 Unported License (the ``License''). You may not use this file except in compliance with the License. You may obtain a copy of the License at \url{http://creativecommons.org/licenses/by-nc/3.0}. Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \textsc{``as is'' basis, without warranties or conditions of any kind}, either express or implied. See the License for the specific language governing permissions and limitations under the License.\\ % License information, replace this with your own license (if any)
+\noindent Este trabalho está licenciado sob a Licença Atribuição-CompartilhaIgual 4.0
+Internacional Creative Commons. Para visualizar uma cópia desta licença, visite
+\url{http://creativecommons.org/licenses/by-sa/4.0/}.
 
 \noindent \textit{Primeira edição, 2020} % Printing/edition date
+
+\newpage
+\thispagestyle{empty}
+\input{welcome}
 
 %----------------------------------------------------------------------------------------
 %	TABLE OF CONTENTS
