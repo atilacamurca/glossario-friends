@@ -18,7 +18,7 @@
 %----------------------------------------------------------------------------------------
 %	VARIOUS REQUIRED PACKAGES AND CONFIGURATIONS
 %----------------------------------------------------------------------------------------
-% \usepackage[11pt]{extsizes}
+\usepackage[12pt]{extsizes}
 
 \usepackage{graphicx} % Required for including pictures
 \graphicspath{{Pictures/}} % Specifies the directory where pictures are stored
@@ -47,8 +47,16 @@
 \linespread{1.15}
 \usepackage{geometry} % Required for adjusting page dimensions and margins
 
+% \usepackage{pgfpages}
+% \pgfpagesuselayout{2 on 1}[a4paper,landscape]
+
+\usepackage{pgfmorepages}
+\pgfmorepagesloadextralayouts
+\pgfpagesuselayout{4 on 2, book format}[a5paper,landscape]
+
 \geometry{
-	paper=a5paper, % Paper size, change to letterpaper for US letter size
+	paper=a4paper, % Paper size, change to letterpaper for US letter size
+  landscape,
 	top=2cm, % Top margin
 	bottom=2cm, % Bottom margin
 	left=2cm, % Left margin
@@ -182,9 +190,9 @@
 \renewcommand{\sectionmark}[1]{\markright{\sffamily\normalsize\thesection\hspace{5pt}#1}{}} % Styling for the current section in the header
 
 \fancyhf{} % Clear default headers and footers
-\fancyhead[LE,RO]{\sffamily\normalsize\thepage} % Styling for the page number in the header
-\fancyhead[LO]{\rightmark} % Print the nearest section name on the left side of odd pages
-\fancyhead[RE]{\leftmark} % Print the current chapter name on the right side of even pages
+\fancyhead[RE,LO]{\sffamily\normalsize\thepage} % Styling for the page number in the header
+\fancyhead[RO]{\rightmark} % Print the nearest section name on the left side of odd pages
+\fancyhead[LE]{\leftmark} % Print the current chapter name on the right side of even pages
 %\fancyfoot[C]{\thepage} % Uncomment to include a footer
 \renewcommand{\headrulewidth}{0.5pt} % Thickness of the rule under the header
 
@@ -487,7 +495,7 @@ innerbottommargin=5pt]{cBox}
 \node[anchor=north west,inner sep=0pt] at (0,0) {\ifusechapterimage\includegraphics[width=\paperwidth]{\thechapterimage}\fi};
 % Configuração da section
 % borda azul arredondada na esquerda e tocando na borda direita
-\draw[anchor=west] (\Gm@lmargin,-4cm) node [line width=2pt,rounded corners=9pt,draw=ocre,fill=white,fill opacity=0.5,inner sep=12pt,minimum height=1\chaptertitleheight]{\strut\makebox[22cm]{}};
+\draw[anchor=west] (\Gm@lmargin,-4cm) node [line width=2pt,rounded corners=9pt,draw=ocre,fill=white,fill opacity=0.5,inner sep=12pt,minimum height=1\chaptertitleheight]{\strut\makebox[18cm]{}};
 \draw[anchor=west] (\Gm@lmargin+.3cm,-4.05cm) node [text width=12cm] {\Large\sffamily\bfseries\color{black}\thechapter\autodot~#1\strut};
 \end{tikzpicture}};
 \end{tikzpicture}
