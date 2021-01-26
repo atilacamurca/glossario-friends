@@ -3,6 +3,7 @@
   "scripts": {
     "build": "gridsome build",
     "develop": "gridsome develop",
+    "dev": "gridsome develop",
     "explore": "gridsome explore",
     "book:build": "./scripts/book-build.sh"
   },
