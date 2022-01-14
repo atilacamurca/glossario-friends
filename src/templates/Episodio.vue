@@ -43,6 +43,7 @@
             {{ $page.episodio.timeToRead }}
           </div>
           <div class="content markdown-body mb-8">
+            <p>{{ $page.episodio.summary }}</p>
             <VueRemarkContent />
           </div>
           <no-refs v-if="$page.episodio.noRefs"></no-refs>
@@ -119,6 +120,7 @@ query Episodio ($path: String!) {
     episodio
     date (format: "MMMM D, Y", locale: "pt-BR")
     timeToRead
+    summary
     linkAnterior
     linkProximo
     path
