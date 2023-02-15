@@ -21,6 +21,7 @@ import Max from './Max.vue'
 import CarolOne from './CarolOne.vue'
 import Carol from './Carol.vue'
 import Gloria from './Gloria.vue'
+import DrGreen from './DrGreen.vue'
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
@@ -49,6 +50,7 @@ export default {
     Vue.component('carol-one', CarolOne)
     Vue.component('chandler', Chandler)
     Vue.component('david', David)
+    Vue.component('dr-green', DrGreen)
     Vue.component('fake-monica', FakeMonica)
     Vue.component('gloria', Gloria)
     Vue.component('heckles', Heckles)
