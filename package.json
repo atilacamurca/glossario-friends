@@ -38,6 +38,7 @@
     "lodash.padstart": "^4.6.1",
     "mkdirp": "^1.0.4",
     "moviedb-promise": "^3.3.1",
+    "netlify-cli": "^12.12.1",
     "netlify-plugin-gridsome-cache": "^1.0.3",
     "netlify-plugin-submit-sitemap": "^0.4.0",
     "pandoc-filter": "^2.1.0",
@@ -50,7 +51,7 @@
     "to-vfile": "^6.1.0",
     "trakt.tv": "^8.1.1",
     "vfile-reporter": "^6.0.2",
-    "vue-server-renderer": "^2.6.11",
-    "vue-template-compiler": "^2.6.11"
+    "vue-server-renderer": "2.6.11",
+    "vue-template-compiler": "2.6.11"
   }
 }
